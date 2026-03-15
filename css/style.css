@@ -219,5 +219,100 @@ body {
         text-align: center;
     }
 
-    
+    .section {
+    padding: 80px 0;
+    position: relative;
+}
+
+/* Section title with animated underline */
+.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline - initially 50%, hover karaladdi 100% */
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    bottom: -10px;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+
+.section-title:hover::after {
+    width: 100%;
+}
+
+
+/* ============================================================
+   STEP 7: ABOUT SECTION
+   ---------------------
+   radial-gradient = circle shape gradient
+   perspective + rotateY = 3D tilt effect
+   ============================================================ */
+
+.about-section {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background subtle radial glow */
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(110, 69, 226, 0.1) 0%, transparent 70%);
+    z-index: -1;
+    animation: pulse 15s infinite alternate;
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* Profile image with 3D hover effect */
+.about-image {
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform-style: preserve-3d;  /* 3D effect eka enable karanawa */
+    max-width: 100%;
+    height: auto;
+}
+
+/* Hover karaladdi 3D tilt wenawa */
+.about-image:hover {
+    transform: scale(1.03) rotateY(5deg) rotateX(2deg);
+}
+
+.about-content h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.about-content h3 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.about-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+    line-height: 1.8;  /* Line spacing eka */
+}
+
 }
