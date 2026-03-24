@@ -21,9 +21,6 @@ body {
     background-color: var(--dark);
     color: var(--light);
 }
-scroll{
-    scroll-behavior: smooth;
-}
 /* ── Navbar ── */
 .navbar {
     position: fixed;
