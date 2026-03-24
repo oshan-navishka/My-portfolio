@@ -500,6 +500,7 @@ footer {
 
 
 
+
 /* ── Typewriter Effect ── */
 
 .typewriter-wrap {
@@ -557,8 +558,6 @@ footer {
 }
 
 /*about section*/
-
-/* ── About Section ── */
 .about-section {
     padding: 100px 0;
     background-color: rgba(0, 0, 0, 0.2);
@@ -592,9 +591,8 @@ footer {
     pointer-events: none;
 }
 
-/* ── IMPORTANT: about section inner container override ── */
 .about-section .container {
-    display: block;   /* override the global flex on .container */
+    display: block;   
     position: relative;
     z-index: 1;
 }
@@ -681,3 +679,84 @@ footer {
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(110, 69, 226, 0.25);
 }
 
+.about-content-col {
+    flex: 1;
+    min-width: 0;
+}
+
+.about-content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--primary), #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-content h3 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--secondary);
+}
+
+.about-content p {
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 18px;
+    line-height: 1.85;
+    font-size: 0.95rem;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.info-card:hover {
+    background: rgba(110, 69, 226, 0.1);
+    border-color: rgba(110, 69, 226, 0.3);
+    transform: translateY(-3px);
+}
+
+.info-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(110,69,226,0.3), rgba(136,211,206,0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--secondary);
+    flex-shrink: 0;
+}
+
+
+
+@media (max-width: 900px) {
+    .about-img-col {
+        flex: 0 0 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .about-row { flex-direction: column; gap: 40px; }
+    .section-title { display: block; }
+}
+
+@media (max-width: 500px) {
+    .info-cards { grid-template-columns: 1fr; }
+}
