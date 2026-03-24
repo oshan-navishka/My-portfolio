@@ -6,6 +6,9 @@
     --card-border: rgba(255, 255, 255, 0.1);
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 * {
     margin: 0;
@@ -18,7 +21,9 @@ body {
     background-color: var(--dark);
     color: var(--light);
 }
-
+scroll{
+    scroll-behavior: smooth;
+}
 /* ── Navbar ── */
 .navbar {
     position: fixed;
