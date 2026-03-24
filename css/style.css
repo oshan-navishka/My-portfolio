@@ -103,6 +103,22 @@ body {
     width: 70%;
 }
 
+/* Mobile touch states for nav links */
+@media (hover: none) and (pointer: coarse) {
+    .nav-link {
+        padding: 10px 12px;
+    }
+    
+    .nav-link:active {
+        color: var(--light);
+        opacity: 0.8;
+    }
+    
+    .nav-link:active::after {
+        width: 70%;
+    }
+}
+
 .navbar-toggler {
     display: none;
     flex-direction: column;
@@ -151,6 +167,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     white-space: nowrap;
     letter-spacing: 0.5px;
+    pointer-events: auto;
 }
 
 .btn-primary-custom::before {
@@ -176,6 +193,14 @@ body {
 
 .btn-primary-custom:active {
     transform: translateY(-1px);
+}
+
+/* Mobile touch states for buttons */
+@media (hover: none) and (pointer: coarse) {
+    .btn-primary-custom:active {
+        transform: scale(0.98);
+        box-shadow: 0 5px 15px rgba(110, 69, 226, 0.3);
+    }
 }
 
 .btn.download-cv {
@@ -222,6 +247,15 @@ body {
 
 .btn.download-cv:active {
     transform: translateY(-1px);
+}
+
+/* Mobile touch states for download button */
+@media (hover: none) and (pointer: coarse) {
+    .btn.download-cv:active {
+        transform: scale(0.98);
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.95);
+    }
 }
 
 /* ── Hero Section ── */
@@ -323,6 +357,8 @@ body {
     text-decoration: none;
     font-size: 1rem;
     transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .social-icon:hover {
@@ -330,6 +366,24 @@ body {
     border-color: rgba(110, 69, 226, 0.6);
     transform: translateY(-3px);
     color: #fff;
+}
+
+.social-icon:active {
+    transform: translateY(-1px);
+    background: rgba(110, 69, 226, 0.35);
+}
+
+/* Mobile touch feedback for social icons */
+@media (hover: none) and (pointer: coarse) {
+    .social-icon {
+        background: rgba(255, 255, 255, 0.08);
+    }
+    
+    .social-icon:active {
+        background: rgba(110, 69, 226, 0.3);
+        border-color: rgba(110, 69, 226, 0.6);
+        transform: scale(0.95);
+    }
 }
 
 /* ── Neon Terminal ── */
