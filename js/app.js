@@ -1,9 +1,11 @@
 let progress = 0;
 let progressBar = document.getElementById("progress-bar");
+let progressPercentage = document.getElementById("progress-percentage");
 
 let interval = setInterval(() => {
   progress += 1;
   progressBar.style.width = progress + "%";
+  progressPercentage.textContent = progress + "%";
 
   if (progress >= 100) {
     clearInterval(interval);
@@ -22,9 +24,11 @@ let interval = setInterval(() => {
 function showLoadingAnimation(callback) {
   const loader = document.getElementById("loading");
   const progressBar = document.getElementById("progress-bar");
+  const progressPercentage = document.getElementById("progress-percentage");
 
   // Reset progress
   progressBar.style.width = "0%";
+  progressPercentage.textContent = "0%";
 
   // Show loader
   loader.style.display = "flex";
@@ -34,6 +38,7 @@ function showLoadingAnimation(callback) {
   const loadingInterval = setInterval(() => {
     currentProgress += 2; // 2% every 100ms = 5 seconds total
     progressBar.style.width = currentProgress + "%";
+    progressPercentage.textContent = currentProgress + "%";
 
     if (currentProgress >= 100) {
       clearInterval(loadingInterval);
