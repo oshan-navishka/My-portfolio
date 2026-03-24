@@ -1,9 +1,12 @@
+// Loading animation disabled - portfolio shows immediately
+// Uncomment below if you want loading animation on page load
+/*
 let progress = 0;
 let progressBar = document.getElementById("progress-bar");
 let progressPercentage = document.getElementById("progress-percentage");
 
 let interval = setInterval(() => {
-  progress += 1;
+  progress += 2;
   progressBar.style.width = progress + "%";
   progressPercentage.textContent = progress + "%";
 
@@ -16,9 +19,18 @@ let interval = setInterval(() => {
 
     setTimeout(() => {
       loader.style.display = "none";
-    }, 800);
+    }, 300);
   }
-}, 20); // speed control
+}, 10); // speed control - faster loading (1 second total)
+*/
+
+// Hide loading screen immediately on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("loading");
+  if (loader) {
+    loader.style.display = "none";
+  }
+});
 
 // Function to show loading animation for 5 seconds
 function showLoadingAnimation(callback) {
@@ -56,8 +68,8 @@ function showLoadingAnimation(callback) {
 
 // Add click handlers to external links and download button
 document.addEventListener('DOMContentLoaded', function() {
-  // External links that should show loading animation
-  const externalLinks = document.querySelectorAll('a[href^="https://"], a[href^="mailto:"], a[href^="tel:"]');
+  // External links that should show loading animation (exclude social icons)
+  const externalLinks = document.querySelectorAll('a[href^="https://"]:not(.social-icon), a[href^="mailto:"]:not(.social-icon), a[href^="tel:"]:not(.social-icon)');
 
   externalLinks.forEach(link => {
     link.addEventListener('click', function(e) {
@@ -67,6 +79,24 @@ document.addEventListener('DOMContentLoaded', function() {
       showLoadingAnimation(() => {
         window.open(href, '_blank');
       });
+    });
+  });
+
+  // Social icons - let them work directly without prevention
+  const socialIcons = document.querySelectorAll('.social-icon');
+  socialIcons.forEach(icon => {
+    icon.addEventListener('click', function(e) {
+      // Do NOT prevent default - let them navigate normally
+      const href = this.getAttribute('href');
+      if (href) {
+        if (href.startsWith('mailto:') || href.startsWith('tel:')) {
+          // Email and phone links work normally
+          return true;
+        } else {
+          // External links (GitHub, LinkedIn) open in new tab
+          window.open(href, '_blank');
+        }
+      }
     });
   });
 

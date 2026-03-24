@@ -359,6 +359,12 @@ body {
     transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
     pointer-events: auto;
+    z-index: 10;
+    position: relative;
+}
+
+.social-icon i {
+    pointer-events: none;
 }
 
 .social-icon:hover {
@@ -953,4 +959,7 @@ footer {
     text-align: center;
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+scroll{
+    scroll-behavior: smooth;
 }
