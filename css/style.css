@@ -495,3 +495,63 @@ footer {
         justify-content: center;
     }
 }
+
+
+
+
+
+/* ── Typewriter Effect ── */
+
+.typewriter-wrap {
+    display: inline-block;
+    position: relative;
+    color: var(--primary);
+    font-weight: 600;
+    min-width: 220px;
+    height: 1.2em;
+}
+
+.tw-start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tw-text {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0;
+    width: 0;
+}
+
+/* First text: "Software Engineer" — 18 chars */
+.tw-text:nth-child(1) {
+    animation: typewriter-1 8s steps(18, end) infinite;
+}
+
+/* Second text: "Web Developer" — 13 chars */
+.tw-text:nth-child(2) {
+    animation: typewriter-2 8s steps(13, end) infinite;
+}
+
+@keyframes typewriter-1 {
+    0%    { width: 0;    opacity: 1; }      /* start: hidden */
+    25%   { width: 100%; opacity: 1; }      /* type in */
+    37.5% { width: 100%; opacity: 1; }      /* hold */
+    50%   { width: 0;    opacity: 1; }      /* erase */
+    100%  { width: 0;    opacity: 0; }      /* end: hidden */
+}
+
+@keyframes typewriter-2 {
+    0%    { width: 0;    opacity: 0; }      /* hidden: wait */
+    50%   { width: 0;    opacity: 1; }      /* appear (hidden width) */
+    75%   { width: 100%; opacity: 1; }      /* type in */
+    87.5% { width: 100%; opacity: 1; }      /* hold */
+    100%  { width: 0;    opacity: 0; }      /* erase and hide */
+}
