@@ -555,3 +555,30 @@ footer {
     87.5% { width: 100%; opacity: 1; }      /* hold */
     100%  { width: 0;    opacity: 0; }      /* erase and hide */
 }
+
+/*about section*/
+
+.about-section {
+  padding: 80px 0;
+}
+
+.about-title {
+  color: #eaeaf0;
+  font-size: 35px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  margin-left: 50px;
+}
+
+/* underline */
+.about-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 80px;
+  height: 4px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #6e45e2, #88d3ce);
+}
