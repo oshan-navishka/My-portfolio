@@ -421,7 +421,6 @@ footer {
     font-size: 0.85rem;
 }
 
-/* ── Animations ── */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -437,7 +436,6 @@ footer {
     50%       { opacity: 0.5; }
 }
 
-/* ── Responsive ── */
 @media (max-width: 991px) {
     .col-lg-6 {
         flex: 0 0 100%;
