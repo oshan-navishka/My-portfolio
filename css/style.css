@@ -965,14 +965,16 @@ scroll{
 }
 /*skill section*/
 
-.skills{
-    background-color: rgba(110, 69, 226, 0.2);
-    box-shadow: inset 0 0 30px rgba(110, 69, 226, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+.skills-section {
+    padding: 100px 0 40px 0; 
+    position: relative;
 }
 
-
-
+.skills-section .container {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
 
 /* ── Cards Container ── */
 .cards-container {
