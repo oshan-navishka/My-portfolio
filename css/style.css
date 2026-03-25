@@ -987,9 +987,9 @@ scroll{
 
 /* ── Card ── */
 .card {
-    background: rgba(255, 255, 255, 0.04);
+    background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 30px 24px;
+    padding: 60px 54px;
     border-radius: 16px;
     flex: 1 1 0;
     min-width: 0;
