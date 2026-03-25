@@ -963,9 +963,38 @@ footer {
 scroll{
     scroll-behavior: smooth;
 }
+/*skill section*/
 
 .skill{
     background-color: rgba(110, 69, 226, 0.2);
     box-shadow: inset 0 0 30px rgba(110, 69, 226, 0.4);
     border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.all-box{
+    position: relative;
+    padding-left: 400px;
+    
+}
+.skill-box1{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: red;
+    
+}
+.skill-box2{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: yellow;
+    margin-left: 250px;
+}
+
+.skill-box3{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: green;
+    margin-left: 500px;
 }
