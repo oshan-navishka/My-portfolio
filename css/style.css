@@ -990,7 +990,7 @@ scroll{
 .card {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 60px 54px;
+    padding: 50px 54px;
     border-radius: 16px;
     flex: 1 1 0;
     min-width: 0;
@@ -1008,8 +1008,8 @@ scroll{
 
 /* ── Card Icon ── */
 .card-icon {
-    width: 52px;
-    height: 52px;
+    width: 50px;
+    height: 50px;
     min-width: 52px;
     border-radius: 14px;
     background: linear-gradient(135deg, rgba(110, 69, 226, 0.3), rgba(136, 211, 206, 0.2));
@@ -1018,12 +1018,12 @@ scroll{
     justify-content: center;
     font-size: 1.4rem;
     color: var(--secondary);
-    margin-bottom: 4px;
+    margin-bottom: 12px;
 }
 
 /* ── Card Title ── */
 .card h2 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--light);
     margin: 0;
@@ -1031,7 +1031,7 @@ scroll{
 
 /* ── Card Description ── */
 .card p {
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     color: rgba(255, 255, 255, 0.55);
     line-height: 1.65;
     margin: 0;
@@ -1053,7 +1053,7 @@ scroll{
     background: rgba(110, 69, 226, 0.15);
     border: 1px solid rgba(110, 69, 226, 0.25);
     color: rgba(136, 211, 206, 0.9);
-    font-size: 0.78rem;
+    font-size: 0.90rem;
     font-weight: 500;
     letter-spacing: 0.3px;
     transition: background 0.2s ease, border-color 0.2s ease;
