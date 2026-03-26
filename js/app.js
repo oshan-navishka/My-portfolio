@@ -17,3 +17,4 @@ let interval = setInterval(() => {
     }, 800);
   }
 }, 20); 
+
