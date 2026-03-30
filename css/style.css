@@ -103,7 +103,7 @@ body {
     width: 70%;
 }
 
-/* Mobile touch states for nav links */
+/* Mobile touch size ek */
 @media (hover: none) and (pointer: coarse) {
     .nav-link {
         padding: 10px 12px;
@@ -195,7 +195,7 @@ body {
     transform: translateY(-1px);
 }
 
-/* Mobile touch states for buttons */
+/* Mobile touch states size ek */
 @media (hover: none) and (pointer: coarse) {
     .btn-primary-custom:active {
         transform: scale(0.98);
@@ -249,7 +249,7 @@ body {
     transform: translateY(-1px);
 }
 
-/* Mobile touch states for download button */
+/* Mobile touch states for download button size ek */
 @media (hover: none) and (pointer: coarse) {
     .btn.download-cv:active {
         transform: scale(0.98);
@@ -379,7 +379,7 @@ body {
     background: rgba(110, 69, 226, 0.35);
 }
 
-/* Mobile touch feedback for social icons */
+/* Mobile touch feedback  social icons */
 @media (hover: none) and (pointer: coarse) {
     .social-icon {
         background: rgba(255, 255, 255, 0.08);
@@ -596,12 +596,12 @@ footer {
     width: 0;
 }
 
-/* First text: "Software Engineer" — 18 chars */
+
 .tw-text:nth-child(1) {
     animation: typewriter-1 8s steps(18, end) infinite;
 }
 
-/* Second text: "Web Developer" — 13 chars */
+
 .tw-text:nth-child(2) {
     animation: typewriter-2 8s steps(13, end) infinite;
 }
@@ -622,7 +622,7 @@ footer {
     100%  { width: 0;    opacity: 0; }      /* erase and hide */
 }
 
-/* Mobile: Reduce spacing */
+/* Mobile size ek*/
 @media (max-width: 768px) {
     .hero-subtitle {
         display: flex;
@@ -964,6 +964,8 @@ footer {
 scroll{
     scroll-behavior: smooth;
 }
+
+
 /*skill section*/
 
 .skills-section {
@@ -977,7 +979,7 @@ scroll{
     z-index: 1;
 }
 
-/* ── Cards Container ── */
+
 .cards-container {
     display: flex;
     justify-content: center;
@@ -989,7 +991,7 @@ scroll{
     margin: 0 auto;
 }
 
-/* ── Card ── */
+
 .card {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1009,7 +1011,6 @@ scroll{
     border-color: rgba(110, 69, 226, 0.4);
 }
 
-/* ── Card Icon ── */
 .card-icon {
     width: 50px;
     height: 50px;
@@ -1024,7 +1025,6 @@ scroll{
     margin-bottom: 12px;
 }
 
-/* ── Card Title ── */
 .card h2 {
     font-size: 1.5rem;
     font-weight: 600;
@@ -1032,7 +1032,6 @@ scroll{
     margin: 0;
 }
 
-/* ── Card Description ── */
 .card p {
     font-size: 0.92rem;
     color: rgba(255, 255, 255, 0.55);
@@ -1041,7 +1040,6 @@ scroll{
     flex: 1;
 }
 
-/* ── Tags ── */
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -1067,7 +1065,7 @@ scroll{
     border-color: rgba(110, 69, 226, 0.5);
 }
 
-/* ── Responsive ── */
+/* ── size agestments ── */
 @media (max-width: 900px) {
     .cards-container {
         flex-wrap: wrap;
@@ -1091,7 +1089,6 @@ scroll{
 
 /*tools section*/
 
-/* ── Tools Section ── */
 .tools-section {
     padding: 100px 0;
     position: relative;
@@ -1130,14 +1127,12 @@ scroll{
     line-height: 1.7;
 }
 
-/* ── Tools Grid ── */
 .tools-grid {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     gap: 16px;
 }
 
-/* ── Tool Card ── */
 .tool-card {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1174,7 +1169,7 @@ scroll{
     line-height: 1.3;
 }
 
-/* ── Responsive ── */
+/* ── size agestments ── */
 @media (max-width: 1100px) {
     .tools-grid {
         grid-template-columns: repeat(6, 1fr);

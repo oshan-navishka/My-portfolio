@@ -13,13 +13,15 @@
     <link rel="stylesheet" href="assets/lib/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
 
 </head>
 <body>
 
 
 <!-- Loading Screen -->
-<div id="loading">
+<!-- <div id="loading">
   <div class="cube-container">
     <div class="cube">
       <div class="cube-face"><i class="fas fa-code"></i></div>
@@ -37,7 +39,7 @@
     <div class="progress-bar" id="progress-bar"></div>
     <div class="progress-percentage" id="progress-percentage">0%</div>
   </div>
-</div>
+</div> -->
 
     <!-- Navigation -->
 <nav class="navbar navbar-expand">
@@ -154,11 +156,11 @@
         <div class="about-row">
             <!-- Image -->
             <div class="about-img-col">
-                <div class="about-image-wrapper">
+                <div class="about-image-wrapper" data-aos="zoom-in-right" data-aos-delay="200">
                     <img src="assets/img/profile-img/profile-photo.png" alt="About Oshan" class="about-image">
                 </div>
             </div>
-            <div class="about-content-col">
+            <div class="about-content-col" data-aos="fade-left">
                 <div class="about-content">
                     <h2>Who am I?</h2>
                     <h3>Software Developer &amp; Web Developer</h3>
@@ -221,6 +223,7 @@
           <span>HTML</span>
           <span>CSS</span>
           <span>JavaScript</span>
+          <span>ScenceBuilder</span>
         </div>
       </div>
 
@@ -245,6 +248,9 @@
         <div class="tags">
           <span>Git</span>
           <span>Figma</span>
+          <span>VS Code</span>
+          <span>IntelliJ IDEA</span>
+          <span>NetBeans</span>
         </div>
       </div>
 
@@ -274,6 +280,11 @@
             <div class="tool-card">
                 <img src="assets/img/tools/Linux.png" alt="Linux">
                 <span>Linux</span>
+            </div>
+
+            <div class="tool-card">
+                <img src="assets/img/tools/figma-color-removebg-preview.png" alt="Figma">
+                <span>Figma</span>
             </div>
 
             <div class="tool-card">
@@ -365,6 +376,10 @@
     </div>
 </section>
 
+<section id="assigment" class="assignment">
+
+</section>
+
 
 
 <footer>
@@ -400,5 +415,10 @@
     </footer>
 
 <script src="js/app.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
