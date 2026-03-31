@@ -1430,7 +1430,23 @@ scroll{
     border-color: #FF2D78;
 }
 
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
+@media (max-width: 600px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+    .project-box {
+        margin: 20px 0;
+        height: auto;
+        min-height: 280px;
+    }
+}
 
 
 
