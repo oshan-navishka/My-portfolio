@@ -1335,6 +1335,101 @@ scroll{
     animation-delay: -1s;
 }
 
+.project-box:hover span::after {
+    bottom: -50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+
+.project-content {
+    position: relative;
+    left: 0;
+    padding: 28px 32px;
+    background: rgba(8, 11, 20, 0.6);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 245, 255, 0.1);
+    z-index: 1;
+    transition: 0.5s;
+    color: #fff;
+    width: 100%;
+}
+
+.project-box:hover .project-content {
+    left: -25px;
+    padding: 40px 32px;
+}
+
+.project-tag {
+    display: inline-block;
+    background: rgba(0, 245, 255, 0.1);
+    color: #00F5FF;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    margin-bottom: 14px;
+}
+
+.project-content h2 {
+    font-size: 1.3em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    font-size: 14px;
+    color: #73767e;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.project-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.project-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(0, 245, 255, 0.08);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    color: #00F5FF;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+.project-links a:hover {
+    background: #00F5FF;
+    color: #080B14;
+    border-color: #00F5FF;
+    transform: translateY(-3px);
+}
+
+.project-links a.live-link {
+    color: #FF2D78;
+    border-color: rgba(255, 45, 120, 0.2);
+    background: rgba(255, 45, 120, 0.08);
+}
+
+.project-links a.live-link:hover {
+    background: #FF2D78;
+    color: #080B14;
+    border-color: #FF2D78;
+}
+
 
 
 
