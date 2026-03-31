@@ -1262,22 +1262,22 @@ scroll{
 
 .project-box:nth-child(1)::before,
 .project-box:nth-child(1)::after {
-    background: linear-gradient(315deg, #00F5FF, #FF2D78);
+    background: linear-gradient(315deg, #00ff1e, #fff82d);
 }
 
 .project-box:nth-child(2)::before,
 .project-box:nth-child(2)::after {
-    background: linear-gradient(315deg, #00F5FF, #646cff);
+    background: linear-gradient(315deg, #ffd500, #98ff64);
 }
 
 .project-box:nth-child(3)::before,
 .project-box:nth-child(3)::after {
-    background: linear-gradient(315deg, #FF2D78, #00F5FF);
+    background: linear-gradient(315deg, #2d73ff, #ff4800);
 }
 
 .project-box:nth-child(4)::before,
 .project-box:nth-child(4)::after {
-    background: linear-gradient(315deg, #646cff, #FF2D78);
+    background: linear-gradient(315deg, #cdd4ab, #a0d65e);
 }
 
 .project-box:nth-child(5)::before,
@@ -1287,7 +1287,7 @@ scroll{
 
 .project-box:nth-child(6)::before,
 .project-box:nth-child(6)::after {
-    background: linear-gradient(315deg, #ffc107, #FF2D78);
+    background: linear-gradient(315deg, #07ff7b, #7dff2d);
 }
 
 .project-box span {
