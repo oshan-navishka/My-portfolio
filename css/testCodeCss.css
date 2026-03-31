@@ -1,3 +1,8 @@
+
+body{
+    background: black;
+}
+
 /* ── Projects Section ── */
 .projects-section {
     padding: 100px 0;
@@ -103,7 +108,11 @@
     top: 0; left: 0;
     width: 0; height: 0;
     border-radius: 8px;
-    background: rgba(0, 245, 255, 0.07);
+    background-color: rgba(0, 245, 255, 0.07);
+    background-image: url('../assets/img/tools/GitHub.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
     backdrop-filter: blur(10px);
     opacity: 0;
     transition: 0.1s;
