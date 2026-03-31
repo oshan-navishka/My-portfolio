@@ -1297,13 +1297,27 @@ scroll{
     pointer-events: none;
 }
 
+.project-box .project-preview-image {
+    position: absolute;
+    inset: 12px;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
+    object-fit: contain;
+    border-radius: 10px;
+    opacity: 0.18;
+}
+
 .project-box span::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
     width: 0; height: 0;
     border-radius: 8px;
-    background: rgba(0, 245, 255, 0.07);
+    background-color: rgba(0, 245, 255, 0.07);
+    background-image: url('../assets/img/tools/GitHub.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
     backdrop-filter: blur(10px);
     opacity: 0;
     transition: 0.1s;
@@ -1326,7 +1340,11 @@ scroll{
     bottom: 0; right: 0;
     width: 100%; height: 100%;
     border-radius: 8px;
-    background: rgba(0, 245, 255, 0.07);
+    background-color: rgba(0, 245, 255, 0.07);
+    background-image: url('../assets/img/tools/GitHub.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
     backdrop-filter: blur(10px);
     opacity: 0;
     transition: 0.5s;
@@ -1347,7 +1365,7 @@ scroll{
     position: relative;
     left: 0;
     padding: 28px 32px;
-    background: rgba(8, 11, 20, 0.6);
+    background: rgba(25, 18, 41, 0.751);
     backdrop-filter: blur(10px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     border-radius: 8px;
