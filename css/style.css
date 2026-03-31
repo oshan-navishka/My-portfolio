@@ -1261,7 +1261,7 @@ scroll{
 
 .project-box:nth-child(1)::before,
 .project-box:nth-child(1)::after {
-    background: linear-gradient(315deg, hsl(182, 55%, 54%), #8f2dff);
+    background: linear-gradient(315deg, #49b7ba, #292fa2);
 }
 
 .project-box:nth-child(2)::before,
@@ -1271,22 +1271,22 @@ scroll{
 
 .project-box:nth-child(3)::before,
 .project-box:nth-child(3)::after {
-    background: linear-gradient(315deg, #2236ba, #268689);
+    background: linear-gradient(315deg, #49b7ba, #292fa2);
 }
 
 .project-box:nth-child(4)::before,
 .project-box:nth-child(4)::after {
-    background: linear-gradient(315deg, #2128ad, #329cb4);
+    background: linear-gradient(315deg, #49b7ba, #292fa2);
 }
 
 .project-box:nth-child(5)::before,
 .project-box:nth-child(5)::after {
-    background: linear-gradient(315deg, #29b49c, #4caf50);
+    background: linear-gradient(315deg, #49b7ba, #292fa2);
 }
 
 .project-box:nth-child(6)::before,
 .project-box:nth-child(6)::after {
-    background: linear-gradient(315deg, #cfaf4f, #23a055);
+    background: linear-gradient(315deg, #49b7ba, #292fa2);
 }
 
 .project-box span {
@@ -1331,7 +1331,7 @@ scroll{
     opacity: 0;
     transition: 0.5s;
     animation: animate 2s ease-in-out infinite;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgb(119, 0, 255);
     animation-delay: -1s;
 }
 
