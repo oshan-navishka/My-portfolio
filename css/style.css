@@ -1362,7 +1362,7 @@ scroll{
 }
 
 .project-box:nth-child(3) span::after {
-    background-image: url('../assets/img/tools/Git.png');
+    background-image: url('../assets/img/projects/pharmacy-management-system-removebg-preview.png');
 }
 
 .project-box:hover span::after {
