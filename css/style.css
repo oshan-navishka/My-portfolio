@@ -2000,5 +2000,226 @@ scroll{
     text-decoration: underline;
 }
 
+/*Light mode*/
 
-/* complete */
+/* ── Light mode global text fixes ── */
+html[data-theme='light'] body {
+    background-color: var(--page-bg);
+    color: var(--page-text);
+}
+
+html[data-theme='light'] .section-title {
+    color: var(--page-text);
+}
+
+html[data-theme='light'] .about-content p {
+    color: rgba(15, 23, 42, 0.74);
+}
+
+html[data-theme='light'] .about-content h3 {
+    color: var(--primary);
+}
+
+html[data-theme='light'] .info-card-text h5 {
+    color: var(--page-text);
+}
+
+html[data-theme='light'] .info-card-text p {
+    color: var(--text-muted);
+}
+
+html[data-theme='light'] .card h2 {
+    color: var(--page-text);
+}
+
+html[data-theme='light'] .card p {
+    color: var(--text-muted);
+}
+
+html[data-theme='light'] .tags span {
+    background: rgba(110, 69, 226, 0.08);
+    border-color: rgba(110, 69, 226, 0.2);
+    color: var(--primary);
+}
+
+html[data-theme='light'] .tool-card span {
+    color: var(--text-muted);
+}
+
+html[data-theme='light'] .tool-card {
+    background: var(--surface);
+    border-color: var(--border-soft);
+}
+
+html[data-theme='light'] .tools-subtitle {
+    color: var(--text-muted);
+}
+
+html[data-theme='light'] .project-content {
+    background: var(--surface-strong);
+    border-color: var(--border-soft);
+}
+
+html[data-theme='light'] .project-content h2 {
+    color: var(--page-text);
+}
+
+html[data-theme='light'] .project-content p {
+    color: var(--text-muted);
+}
+
+html[data-theme='light'] .project-tag {
+    background: rgba(110, 69, 226, 0.08);
+    color: var(--primary);
+    border-color: rgba(110, 69, 226, 0.2);
+}
+
+html[data-theme='light'] .project-links a {
+    background: var(--surface-2);
+    border-color: var(--border-soft);
+    color: var(--primary);
+}
+
+html[data-theme='light'] .project-links a.live-link {
+    color: #d4205a;
+    border-color: rgba(212, 32, 90, 0.2);
+    background: rgba(212, 32, 90, 0.06);
+}
+
+html[data-theme='light'] .neon-terminal {
+    background: var(--surface-strong);
+    border-color: rgba(110, 69, 226, 0.3);
+    box-shadow: 0 0 30px rgba(110, 69, 226, 0.08);
+}
+
+html[data-theme='light'] .neon-buttons {
+    border-top-color: var(--border-soft);
+}
+
+html[data-theme='light'] .hero-title {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+html[data-theme='light'] .hero-subtitle {
+    color: var(--text-muted);
+}
+
+html[data-theme='light'] .text-white-50 {
+    color: var(--text-muted);
+}
+
+html[data-theme='light'] .social-icon {
+    background: var(--surface-2);
+    border-color: var(--border-soft);
+    color: var(--text-muted);
+}
+
+html[data-theme='light'] .flip-front {
+    background-color: rgba(240, 242, 255, 0.95);
+    border-color: var(--border-soft);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.1);
+}
+
+html[data-theme='light'] .flip-front::after {
+    background-color: rgba(255, 255, 255, 0.15);
+    opacity: 0.2;
+}
+
+html[data-theme='light'] .flip-back {
+    border-color: var(--border-soft);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.1);
+}
+
+html[data-theme='light'] .flip-back::after {
+    background-color: rgba(255, 255, 255, 0.25);
+    opacity: 0.3;
+}
+
+html[data-theme='light'] .flip-front .flip-inner p {
+    color: var(--page-text);
+}
+
+html[data-theme='light'] .flip-front .flip-inner span {
+    color: var(--text-muted);
+}
+
+html[data-theme='light'] .flip-back .flip-inner p {
+    color: var(--page-text);
+}
+
+html[data-theme='light'] .assign-btn.view-btn {
+    background: var(--page-text);
+    color: var(--page-bg);
+}
+
+html[data-theme='light'] .assign-btn.code-btn {
+    background: var(--surface-2);
+    color: var(--page-text);
+    border-color: var(--border-soft);
+}
+
+/* ── View All button light mode ── */
+html[data-theme='light'] .view-all {
+    border-color: rgba(110, 69, 226, 0.3);
+    background: transparent;
+}
+
+html[data-theme='light'] .view-all-link {
+    color: var(--primary);
+}
+
+html[data-theme='light'] .view-all-link:hover {
+    background: rgba(110, 69, 226, 0.06);
+    border-color: rgba(110, 69, 226, 0.5);
+    color: var(--primary);
+}
+
+/* ── Footer light mode ── */
+html[data-theme='light'] footer {
+    border-top-color: var(--border-soft);
+    background: var(--page-bg);
+}
+
+html[data-theme='light'] .footer-link {
+    color: var(--text-muted);
+}
+
+html[data-theme='light'] .copyright {
+    color: var(--text-muted);
+}
+
+/* ── Navbar light mode ── */
+html[data-theme='light'] .navbar {
+    background-color: var(--nav-bg);
+    border-bottom-color: var(--border-soft);
+}
+
+html[data-theme='light'] .navbar-toggler-icon {
+    background: var(--page-text);
+}
+
+html[data-theme='light'] .navbar-collapse {
+    border-top-color: var(--border-soft);
+}
+
+html[data-theme='light'] .nav-link {
+    color: var(--text-muted);
+    border-bottom-color: rgba(15, 23, 42, 0.06);
+}
+
+html[data-theme='light'] .nav-link:hover {
+    color: var(--primary);
+}
+
+html[data-theme='light'] .btn.download-cv {
+    color: var(--page-text);
+    border-color: var(--border-strong);
+}
+
+html[data-theme='light'] .btn.download-cv:hover {
+    background: var(--surface-2);
+    box-shadow: var(--shadow-soft);
+}
