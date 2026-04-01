@@ -5,9 +5,9 @@
     --light: #f8f9fa;
     --card-border: rgba(255, 255, 255, 0.1);
     --container-pad: clamp(14px, 3vw, 24px);
-    --section-space: clamp(64px, 8vw, 100px);
+    --section-space: clamp(20px, 4vw, 50px);
     --text-base: clamp(0.95rem, 0.25vw + 0.9rem, 1rem);
-    --title-space: clamp(32px, 6vw, 60px);
+    --title-space: clamp(32px, 4vw, 56px);
 }
 
 html {
