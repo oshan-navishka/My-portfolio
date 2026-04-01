@@ -391,7 +391,7 @@ html[data-theme='light'] .flip-front .flip-inner p {
 
 html[data-theme='light'] .flip-front .flip-inner span,
 html[data-theme='light'] .flip-back .flip-inner p {
-    color: whitesmoke;
+    color: white;
 }
 
 html[data-theme='light'] .view-btn {
