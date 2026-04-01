@@ -1326,6 +1326,10 @@ scroll{
     background-image: url('../assets/img/projects/59c26b6c-65cf-417a-8856-d542c0c014b7.webp');
 }
 
+.project-box:nth-child(4) span::before {
+    background-image: url('../assets/img/projects/Flogo.png');
+}
+
 /*podi box deka */
 .project-box:hover span::before {
     top: -50px;
@@ -1363,6 +1367,10 @@ scroll{
 
 .project-box:nth-child(3) span::after {
     background-image: url('../assets/img/projects/Gemini_Generated_Image_t4e9rqt4e9rqt4e9.png');
+}
+
+.project-box:nth-child(4) span::after {
+    background-image: url('../assets/img/projects/hello.jpg.webp');
 }
 
 .project-box:hover span::after {
