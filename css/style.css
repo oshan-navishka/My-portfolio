@@ -1334,6 +1334,10 @@ scroll{
     background-image: url('../assets/img/projects/tictactoe.png');
 }
 
+.project-box:nth-child(6) span::before {
+    background-image: url('../assets/img/projects/bbbbbbbb-removebg-preview.png');
+}
+
 /*podi box deka */
 .project-box:hover span::before {
     top: -50px;
@@ -1379,6 +1383,10 @@ scroll{
 
 .project-box:nth-child(5) span::after {
     background-image: url('../assets/img/projects/Super_tic-tac-toe_rules_example.png');
+}
+
+.project-box:nth-child(6) span::after {
+    background-image: url('../assets/img/projects/aaaaaaaaaaa.png');
 }
 
 .project-box:hover span::after {
