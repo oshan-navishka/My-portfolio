@@ -1788,8 +1788,11 @@ scroll{
 
 .view-all {
     text-align: center;
+    width: 400px;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
     text-decoration: none;
     color: var(--primary);
@@ -1809,7 +1812,6 @@ scroll{
 }
 
 .view-all a {
-    text-decoration: none;
     color: var(--primary);
     font-weight: 100;
 }
