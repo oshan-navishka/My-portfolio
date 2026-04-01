@@ -168,6 +168,10 @@ body {
     background-image: url("../assets/img/assigment/case-12.png");
 }
 
+.assign-col:nth-child(13) .flip-back {
+    background-image: url("../assets/img/assigment/case-13.png");
+}
+
 
 .flip-back::after {
     position: absolute;
