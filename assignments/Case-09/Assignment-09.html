@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="web, html, css, javascript, js, java, python">
+    <meta name="description" content="World best web development tutorials">
+    <meta name="author" content="IJSE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignment-IX</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/lib/normalize.css">
+    <link rel="stylesheet" href="https://www.hxstrive.com/cdn/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        div{
+            width: 250px;
+            height: 100px;
+            background-color: orange;
+            border-radius: 20px;
+            position: relative;
+            animation-name: animation;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes animation {
+
+            0%{
+                margin-top: 0;
+                margin-left: 0;
+                transform: rotate(0deg);
+                background-color: blue;
+            }
+
+            25%{
+                margin-top: 0;
+                margin-left: Calc(100vw - 250px);
+                transform: rotate(180deg);
+                background-color: yellow;
+            }
+
+            50%{
+                margin-top: Calc(100vh - 100px);
+                margin-left: Calc(100vw - 250px);
+                transform: rotate(0deg);
+                background-color: red;
+            }
+
+            75%{
+                margin-top: Calc(100vh - 100px);
+                margin-left: 0;
+                transform: rotate(180deg);
+                background-color: deeppink;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
