@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="web, html, css, javascript, js, java, python">
+    <meta name="description" content="World best web development tutorials">
+    <meta name="author" content="IJSE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><Assignment-VII></Assignment-VII></title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/lib/normalize.css">
+    <link rel="stylesheet" href="https://www.hxstrive.com/cdn/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        section{
+            width: 100vw;
+            height: 100vh;
+            background-color: dodgerblue;
+            position: relative;
+        }
+
+        #centerCircle{
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: gray;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 50px;
+            font-family: sans-serif;
+            border-width: 20px;
+            border-style: solid;
+            border-color: red white white white;
+        }
+
+        #centerCircle:hover{
+            animation-name: animation;
+            animation-duration: 1s;
+        }
+
+        #centerCircle:hover > #text{
+            animation-name: animation-text;
+            animation-duration: 1s;
+        }
+
+        @keyframes animation {
+            from{
+                transform: rotate(0deg);
+            }
+
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes animation-text {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <section>
+        <div id="centerCircle"><div id="text">RWAD</div></div>
+    </section>
+</body>
+
+</html>
