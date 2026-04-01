@@ -1603,84 +1603,66 @@ scroll{
 }
 
 /*assignment section*/
-
-
-*{
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+.assignments-section {
+    padding: var(--section-space) 0;
+    position: relative;
 }
 
-h1{
-  font-size: 2.5rem;
-  font-family: 'Montserrat';
-  font-weight: normal;
-  color: #444;
-  text-align: center;
-  margin: 2rem 0;
+.assignments-section .container {
+    display: block;
 }
 
-.wrapper{
-  width: 90%;
-  margin: 0 auto;
-  max-width: 80rem;
+.assign-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 80rem;
 }
 
-.cols{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.assign-cols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
 }
 
-.col{
-  width: calc(25% - 2rem);
-  margin: 1rem;
-  cursor: pointer;
+.assign-col {
+    width: calc(25% - 2rem);
+    cursor: pointer;
 }
 
-.container{
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-	-webkit-perspective: 1000px;
-	        perspective: 1000px;
+.flip-container {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+    min-height: 280px;
 }
 
-.front,
-.back{
-  background-size: cover;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
-  border-radius: 10px;
-	background-position: center;
-	-webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-	transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-	-o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-	transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-	transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-	-webkit-backface-visibility: hidden;
-	        backface-visibility: hidden;
-	text-align: center;
-	min-height: 280px;
-	height: auto;
-	border-radius: 10px;
-	color: #fff;
-	font-size: 1.5rem;
+.flip-front,
+.flip-back {
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    text-align: center;
+    min-height: 280px;
+    color: #fff;
+    font-size: 1.5rem;
+    border: 1px solid rgba(110, 69, 226, 0.2);
 }
 
-.back{
-  background: #cedce7;
-  background: -webkit-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
-  background: -o-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
-  background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+.flip-front {
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    background-image: url('../assets/img/assigment/neon.webp');
+    background-color: rgba(26, 26, 46, 0.9);
 }
 
-.front:after{
-	position: absolute;
+.flip-front::after {
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
@@ -1688,120 +1670,118 @@ h1{
     height: 100%;
     content: '';
     display: block;
-    opacity: .6;
-    background-color: #000;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-    border-radius: 10px;
-}
-.container:hover .front,
-.container:hover .back{
-    -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-    transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-    -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    opacity: 0.55;
+    background-color: #0a0a1a;
+    backface-visibility: hidden;
+    border-radius: 12px;
 }
 
-.back{
+.flip-back {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    background-image: url('../assets/test/Screenshot 2026-03-30 143635.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(26, 26, 46, 0.95);
 }
 
-.inner{
-    -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
-            transform: translateY(-50%) translateZ(60px) scale(0.94);
+.flip-back::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    opacity: 0.45;
+    background-color: #0a0a1a;
+    backface-visibility: hidden;
+    border-radius: 12px;
+}
+
+.assign-col:hover .flip-front,
+.assign-col.hover .flip-front {
+    transform: rotateY(-180deg);
+    transform-style: preserve-3d;
+}
+
+.assign-col:hover .flip-back,
+.assign-col.hover .flip-back {
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+}
+
+.flip-inner {
+    transform: translateY(-50%) translateZ(60px) scale(0.94);
     top: 50%;
     position: absolute;
     left: 0;
     width: 100%;
     padding: 2rem;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    outline: 1px solid transparent;
-    -webkit-perspective: inherit;
-            perspective: inherit;
+    box-sizing: border-box;
+    perspective: inherit;
     z-index: 2;
 }
 
-.container .back{
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            background-image: url(../assets/test/Screenshot\ 2026-03-30\ 143635.png);
-
-            background-size: cover;     
-    background-repeat: no-repeat;
-    background-position: center;
-            
-
+.flip-front .flip-inner p {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    color: #fff;
 }
 
-.container .front{
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            background-image: url(../assets/img/assigment/neon.webp);
+.flip-front .flip-inner p::after {
+    content: '';
+    width: 3rem;
+    height: 2px;
+    position: absolute;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -0.6rem;
 }
 
-.container:hover .back{
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+.flip-front .flip-inner span {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    display: block;
 }
 
-.container:hover .front{
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+.flip-back .flip-inner p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-.front .inner p{
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  position: relative;
+/* ── Responsive ── */
+@media (max-width: 64rem) {
+    .assign-col {
+        width: calc(33.333% - 2rem);
+    }
 }
 
-.front .inner p:after{
-  content: '';
-  width: 4rem;
-  height: 2px;
-  position: absolute;
-  background: #C6D4DF;
-  display: block;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  bottom: -.75rem;
+@media (max-width: 48rem) {
+    .assign-col {
+        width: calc(50% - 2rem);
+    }
 }
 
-.front .inner span{
-  color: rgba(255,255,255,0.7);
-  font-family: 'Montserrat';
-  font-weight: 300;
-}
-
-@media screen and (max-width: 64rem){
-  .col{
-    width: calc(33.333333% - 2rem);
-  }
-}
-
-@media screen and (max-width: 48rem){
-  .col{
-    width: calc(50% - 2rem);
-  }
-}
-
-@media screen and (max-width: 32rem){
-  .col{
-    width: 100%;
-    margin: 0 0 2rem 0;
-  }
+@media (max-width: 32rem) {
+    .assign-col {
+        width: 100%;
+        margin: 0 0 1.5rem 0;
+    }
 }
