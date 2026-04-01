@@ -273,7 +273,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: clamp(86px, 10vw, 110px) 0 var(--section-space);
+    padding: clamp(86px, 10vw, 110px) 0 20px;
     position: relative;
     overflow: hidden;
 }
@@ -421,10 +421,10 @@ body {
 }
 
 .neon-screen {
-    padding: 28px 24px 20px;
+    padding: 20px 18px 16px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
 }
 
 .code-line {
@@ -466,7 +466,7 @@ body {
 
 /* ── Footer ── */
 footer {
-    padding: 30px 0;
+    padding: 20px 0;
     border-top: 1px solid var(--card-border);
     text-align: center;
 }
@@ -781,29 +781,29 @@ footer {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 .about-content h3 {
     font-size: clamp(1rem, 2vw, 1.25rem);
     font-weight: 600;
-    margin-bottom: 34px;
+    margin-bottom: 18px;
     color: var(--secondary);
 
 }
 
 .about-content p {
     color: rgba(255, 255, 255, 0.65);
-    margin-bottom: 25px;
-    line-height: 1.85;
+    margin-bottom: 15px;
+    line-height: 1.75;
     font-size: 0.95rem;
 }
 
 .info-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 32px;
+    gap: 14px;
+    margin-top: 18px;
 }
 
 .info-card {
