@@ -857,7 +857,14 @@ footer {
         margin: 0 auto;
     }
     .about-row { flex-direction: column; gap: 40px; }
-    .section-title { display: block; }
+    .section-title { 
+        display: block; 
+        text-align: center;
+    }
+    .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 @media (min-width: 992px) {
