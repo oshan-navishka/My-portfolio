@@ -1764,6 +1764,48 @@ scroll{
     color: rgba(255, 255, 255, 0.85);
     font-weight: 500;
     letter-spacing: 0.5px;
+    margin-bottom: 0.9rem;
+}
+
+.back-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.assign-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 86px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.view-btn {
+    background: #ffffff;
+    color: #121326;
+}
+
+.code-btn {
+    background: rgba(18, 19, 38, 0.9);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.assign-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.assign-btn:active {
+    transform: translateY(0);
+    opacity: 0.9;
 }
 
 /* ── Responsive ── */
