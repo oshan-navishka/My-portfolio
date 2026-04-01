@@ -4,6 +4,10 @@
     --dark: #1a1a2e;
     --light: #f8f9fa;
     --card-border: rgba(255, 255, 255, 0.1);
+    --container-pad: clamp(14px, 3vw, 24px);
+    --section-space: clamp(64px, 8vw, 100px);
+    --text-base: clamp(0.95rem, 0.25vw + 0.9rem, 1rem);
+    --title-space: clamp(32px, 6vw, 60px);
 }
 
 html {
@@ -20,6 +24,8 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--dark);
     color: var(--light);
+    font-size: var(--text-base);
+    line-height: 1.6;
 }
 /* ── Navbar ── */
 .navbar {
@@ -43,7 +49,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 var(--container-pad);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -263,7 +269,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 100px 0;
+    padding: clamp(86px, 10vw, 110px) 0 var(--section-space);
     position: relative;
     overflow: hidden;
 }
@@ -638,7 +644,7 @@ footer {
 
 /*about section*/
 .about-section {
-    padding: 80px 0;
+    padding: var(--section-space) 0;
     background-color: rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
@@ -679,7 +685,7 @@ footer {
 .section-title {
     font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 700;
-    margin-bottom: 60px;
+    margin-bottom: var(--title-space);
     position: relative;
     display: inline-block;
     z-index: 2;
@@ -969,7 +975,7 @@ scroll{
 /*skill section*/
 
 .skills-section {
-    padding: 100px 0 40px 0; 
+    padding: var(--section-space) 0 clamp(24px, 4vw, 40px) 0;
     position: relative;
 }
 
@@ -995,7 +1001,7 @@ scroll{
 .card {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 50px 54px;
+    padding: clamp(28px, 5vw, 50px) clamp(20px, 4vw, 54px);
     border-radius: 16px;
     flex: 1 1 0;
     min-width: 0;
@@ -1026,14 +1032,14 @@ scroll{
 }
 
 .card h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     font-weight: 600;
     color: var(--light);
     margin: 0;
 }
 
 .card p {
-    font-size: 0.92rem;
+    font-size: clamp(0.88rem, 0.35vw + 0.82rem, 0.96rem);
     color: rgba(255, 255, 255, 0.55);
     line-height: 1.65;
     margin: 0;
@@ -1090,7 +1096,7 @@ scroll{
 /*tools section*/
 
 .tools-section {
-    padding: 100px 0;
+    padding: var(--section-space) 0;
     position: relative;
     overflow: hidden;
 }
@@ -1110,7 +1116,7 @@ scroll{
 .tools-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 var(--container-pad);
     position: relative;
     z-index: 1;
 }
@@ -1137,7 +1143,7 @@ scroll{
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
-    padding: 20px 10px;
+    padding: clamp(14px, 2.5vw, 20px) clamp(8px, 1.6vw, 12px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1156,13 +1162,13 @@ scroll{
 }
 
 .tool-card img {
-    width: 48px;
-    height: 48px;
+    width: clamp(34px, 4.5vw, 48px);
+    height: clamp(34px, 4.5vw, 48px);
     object-fit: contain;
 }
 
 .tool-card span {
-    font-size: 0.78rem;
+    font-size: clamp(0.72rem, 0.22vw + 0.68rem, 0.8rem);
     color: rgba(255, 255, 255, 0.75);
     text-align: center;
     font-weight: 500;
@@ -1200,7 +1206,7 @@ scroll{
 /*project section*/
 
 .projects-section {
-    padding: 100px 0;
+    padding: var(--section-space) 0;
     position: relative;
 }
 
@@ -1217,11 +1223,11 @@ scroll{
 .project-box {
     position: relative;
     width: 100%;
-    height: 330px;
+    height: clamp(280px, 32vw, 330px);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px 20px;
+    margin: clamp(16px, 2.5vw, 30px) clamp(8px, 1.8vw, 20px);
     transition: 0.5s;
 }
 
@@ -1400,7 +1406,7 @@ scroll{
 .project-content {
     position: relative;
     left: 0;
-    padding: 28px 32px;
+    padding: clamp(18px, 3vw, 28px) clamp(18px, 3vw, 32px);
     background: rgba(25, 18, 41, 0.751);
     backdrop-filter: blur(10px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -1409,13 +1415,13 @@ scroll{
     z-index: 1;
     transition: 0.5s;
     color: #fff;
-    width: 300px;
-    height: 300px;
+    width: min(100%, 300px);
+    height: min(100%, 300px);
 }
 
 .project-box:hover .project-content {
     left: -25px;
-    padding: 40px 32px;
+    padding: clamp(22px, 4vw, 40px) clamp(18px, 3vw, 32px);
 }
 
 .project-tag {
@@ -1433,13 +1439,13 @@ scroll{
 }
 
 .project-content h2 {
-    font-size: 1.3em;
+    font-size: clamp(1.05rem, 1.2vw + 0.9rem, 1.3rem);
     color: #fff;
     margin-bottom: 10px;
 }
 
 .project-content p {
-    font-size: 14px;
+    font-size: clamp(0.84rem, 0.3vw + 0.78rem, 0.9rem);
     color: #73767e;
     line-height: 1.7;
     margin-bottom: 20px;
@@ -1495,11 +1501,44 @@ scroll{
 @media (max-width: 600px) {
     .projects-container {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
+
     .project-box {
-        margin: 20px 0;
+        margin: 0;
         height: auto;
-        min-height: 280px;
+        min-height: 0;
+        padding: 6px 0;
+        overflow: hidden;
+    }
+
+    .project-box::before,
+    .project-box::after {
+        left: 12px;
+        width: calc(100% - 24px);
+        transform: skewX(0deg);
+    }
+
+    .project-box:hover::before,
+    .project-box:hover::after {
+        left: 12px;
+        width: calc(100% - 24px);
+        transform: skewX(0deg);
+    }
+
+    .project-box span {
+        display: none;
+    }
+
+    .project-content {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+    }
+
+    .project-box:hover .project-content {
+        left: 0;
+        padding: clamp(18px, 3vw, 28px) clamp(18px, 3vw, 32px);
     }
 }
 
