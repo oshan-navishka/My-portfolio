@@ -156,6 +156,10 @@ body {
     background-image: url("../assets/img/assigment/case-9.png");
 }
 
+.assign-col:nth-child(10) .flip-back {
+    background-image: url("../assets/img/assigment/case-10.png");
+}
+
 
 .flip-back::after {
     position: absolute;
