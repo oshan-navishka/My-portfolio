@@ -2139,11 +2139,11 @@ html[data-theme='light'] .flip-back::after {
 }
 
 html[data-theme='light'] .flip-front .flip-inner p {
-    color: var(--page-text);
+    color: rgb(255, 210, 28);
 }
 
 html[data-theme='light'] .flip-front .flip-inner span {
-    color: var(--text-muted);
+    color: white;
 }
 
 html[data-theme='light'] .flip-back .flip-inner p {
