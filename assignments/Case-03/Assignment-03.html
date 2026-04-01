@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="web, html, css, javascript, js, java, python">
+    <meta name="description" content="World best web development tutorials">
+    <meta name="author" content="IJSE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignment-III</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/lib/normalize.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+}
+
+.outer-circle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 260px;
+    height: 260px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 18px solid #b8aa9b;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.middle-ring {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 220px;
+    height: 220px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 12px solid #e64a19;
+    z-index: 11;
+    pointer-events: none;
+}
+
+.section {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: transparent;
+}
+
+.scroll-circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    text-align: center;
+    line-height: 1.2;
+    word-break: break-word;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.section1 .scroll-circle {
+    background: #7a42a8;
+}
+
+.section2 .scroll-circle {
+    background: #2f6ee5;
+}
+
+.section3 .scroll-circle {
+    background: #1e9f50;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="outer-circle"></div>
+<div class="middle-ring"></div>
+
+<section class="section section1">
+    <div class="scroll-circle">Hello</div>
+</section>
+
+<section class="section section2">
+    <div class="scroll-circle">Welcome to</div>
+</section>
+
+<section class="section section3">
+    <div class="scroll-circle">Institute of software engineering </div>
+</section>
+
+</body>
+</html>
