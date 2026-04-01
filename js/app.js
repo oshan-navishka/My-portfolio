@@ -18,3 +18,15 @@ let interval = setInterval(() => {
   }
 }, 20); 
 
+// Skills cards scroll animation
+const skillCards = document.querySelectorAll('.card');
+
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.15 });
+
+skillCards.forEach(card => skillObserver.observe(card));

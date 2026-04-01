@@ -1014,7 +1014,7 @@ scroll{
 /*skill section*/
 
 .skills-section {
-    padding: var(--section-space) 0 clamp(24px, 4vw, 40px) 0;
+    padding: var(--section-space) 0 clamp(20px, 3.5vw, 34px) 0;
     position: relative;
 }
 
@@ -1029,21 +1029,21 @@ scroll{
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 24px;
-    flex-wrap: nowrap;
-    padding-bottom: 20px;
+    gap: clamp(16px, 2vw, 24px);
+    flex-wrap: wrap;
+    padding-bottom: clamp(10px, 1.6vw, 18px);
     max-width: 1200px;
     margin: 0 auto;
 }
 
 
 .card {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: clamp(28px, 5vw, 50px) clamp(20px, 4vw, 54px);
+    padding: clamp(22px, 4vw, 42px) clamp(16px, 3vw, 34px);
     border-radius: 16px;
-    flex: 1 1 0;
-    min-width: 0;
+    flex: 1 1 calc(33.333% - 18px);
+    min-width: 260px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -1079,7 +1079,7 @@ scroll{
 
 .card p {
     font-size: clamp(0.88rem, 0.35vw + 0.82rem, 0.96rem);
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.62);
     line-height: 1.65;
     margin: 0;
     flex: 1;
@@ -1094,12 +1094,12 @@ scroll{
 
 .tags span {
     display: inline-block;
-    padding: 5px 12px;
+    padding: 5px 11px;
     border-radius: 20px;
     background: rgba(110, 69, 226, 0.15);
     border: 1px solid rgba(110, 69, 226, 0.25);
     color: rgba(136, 211, 206, 0.9);
-    font-size: 0.90rem;
+    font-size: clamp(0.78rem, 0.25vw + 0.72rem, 0.88rem);
     font-weight: 500;
     letter-spacing: 0.3px;
     transition: background 0.2s ease, border-color 0.2s ease;
@@ -1117,17 +1117,24 @@ scroll{
     }
     .card {
         flex: 1 1 calc(50% - 12px);
-        min-width: 240px;
+        min-width: 220px;
     }
 }
 
 @media (max-width: 600px) {
     .cards-container {
-        padding: 30px 16px;
+        padding: 0;
         gap: 16px;
     }
     .card {
         flex: 1 1 100%;
+        min-width: 0;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .card:hover {
+        transform: none;
     }
 }
 
