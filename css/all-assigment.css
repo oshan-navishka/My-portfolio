@@ -121,7 +121,11 @@ body {
 }
 
 .assign-col:nth-child(1) .flip-back {
-    background-image: url("../assets/img/assigment/Screenshot\ 2026-04-01\ 181048.png");
+    background-image: url("../assets/img/assigment/case-1.png");
+}
+
+.assign-col:nth-child(2) .flip-back {
+    background-image: url("../assets/img/assigment/case-2.png");
 }
 
 .flip-back::after {
