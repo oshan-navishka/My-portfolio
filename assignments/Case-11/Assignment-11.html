@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="web, html, css, javascript, js, java, python">
+    <meta name="description" content="World best web development tutorials">
+    <meta name="author" content="IJSE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignment-XI</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/lib/normalize.css">
+    <link rel="stylesheet" href="https://www.hxstrive.com/cdn/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        section{
+            width: 500px;
+            height: 300px;
+            position: relative;
+            animation: bodyAnimation 2s alternate infinite;
+        }
+
+        section > div:nth-child(1){
+            width: 400px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: lightgray;
+        }
+
+        .wheel{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border-width: 10px;
+            border-top-color: black;
+            border-bottom-color: black;
+            border-left-color: gray;
+            border-right-color: gray;
+            background-color: gainsboro;
+            border-style: solid;
+            position: absolute;
+            animation: wheelAnimation 2s alternate infinite;
+        }
+
+        #wheel1{
+            margin-top: 200px;
+            margin-left: 100px;
+        }
+
+        #wheel2{
+            margin-top: 200px;
+            margin-left: 300px;
+        }
+
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        @keyframes wheelAnimation {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes bodyAnimation {
+            from{
+                margin-left: 0;
+            }
+            to{
+                margin-left: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div id="wheel1" class="wheel"><img src="../assets/Merceds-Benz.png" alt="benzLogo" width="50px"></div>
+        <div id="wheel2" class="wheel"><img src="../assets/Merceds-Benz.png" alt="benzLogo" width="50px"></div>
+    </section>
+</body>
+</html>
