@@ -1,15 +1,28 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
-html, body { background: #333 url("https://codepen.io/images/classy_fabric.png"); }
+html,
+body {
+    min-height: 100%;
+    background: #333 url("https://codepen.io/images/classy_fabric.png");
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 16px;
+}
 
 .slides {
     padding: 0;
     width: 300px;
     height: 200px;
     display: block;
-    margin: 0 auto;
+    margin: 0;
     position: relative;
     overflow: hidden;
+    list-style: none;
 }
 
 .slides * {
