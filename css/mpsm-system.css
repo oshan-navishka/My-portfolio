@@ -69,13 +69,15 @@ body {
 
     transition: opacity .2s;
 
-    color: #FFF;
+    color: white;
     font-size: 64pt;
     text-align: center;
     line-height: 200px;
     font-family: "Varela Round", sans-serif;
-    background-color: rgba(255, 255, 255, .3);
-    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+       
+      top: 35%;      
+    
+
 }
 
 .slide:hover + .nav label { opacity: 0.5; }
@@ -116,7 +118,7 @@ input:checked + .slide-container .nav label { display: block; }
 
 .nav-dots .nav-dot:hover {
 	cursor: pointer;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgb(255, 255, 255);
 }
 
 input#img-1:checked ~ .nav-dots label#img-dot-1,
@@ -124,6 +126,10 @@ input#img-2:checked ~ .nav-dots label#img-dot-2,
 input#img-3:checked ~ .nav-dots label#img-dot-3,
 input#img-4:checked ~ .nav-dots label#img-dot-4,
 input#img-5:checked ~ .nav-dots label#img-dot-5,
-input#img-6:checked ~ .nav-dots label#img-dot-6 {
-	background: rgba(0, 0, 0, 0.8);
+input#img-6:checked ~ .nav-dots label#img-dot-6,
+input#img-7:checked ~ .nav-dots label#img-dot-7,
+input#img-8:checked ~ .nav-dots label#img-dot-8,
+input#img-9:checked ~ .nav-dots label#img-dot-9,
+input#img-10:checked ~ .nav-dots label#img-dot-10{
+	background: rgb(255, 255, 255);
 }
