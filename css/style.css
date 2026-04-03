@@ -1488,6 +1488,11 @@ scroll{
     background: linear-gradient(315deg, #49b7ba, #292fa2);
 }
 
+.project-box:nth-child(8)::before,
+.project-box:nth-child(8)::after {
+    background: linear-gradient(315deg, #49b7ba, #292fa2);
+}
+
 .project-box span {
     display: block;
     position: absolute;
