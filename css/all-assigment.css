@@ -106,7 +106,7 @@ body {
 .flip-front {
     transform: rotateY(0deg);
     transform-style: preserve-3d;
-    background-image: url('../assets/img/assigment/neon.webp');
+    background-image: url('../assets/img/assigment/ChatGPT\ Image\ Apr\ 3\,\ 2026\,\ 02_35_04\ PM.png');
     background-color: rgba(26, 26, 46, 0.9);
 }
 
@@ -241,7 +241,7 @@ body {
     font-weight: 600;
     margin-bottom: 1rem;
     position: relative;
-    color: #fff;
+    color: #e2e8f0;
 }
 
 .flip-front .flip-inner p::after {
@@ -258,7 +258,7 @@ body {
 }
 
 .flip-front .flip-inner span {
-    color: rgba(255, 255, 255, 0.65);
+    color: #4ade80;
     font-size: 0.95rem;
     font-weight: 400;
     margin-top: 0.5rem;
