@@ -1552,7 +1552,7 @@ scroll{
 }
 
 .project-box:nth-child(8) span::before {
-    background-image: url('../assets/img/projects/FoodCityLogoWhStr3.webp');
+    background-image: url('../assets/img/projects/gym1.jpg');
 }
 
 .project-box:nth-child(9) span::before {
@@ -1615,7 +1615,7 @@ scroll{
 }
 
 .project-box:nth-child(8) span::after {
-    background-image: url('../assets/img/projects/348s.jpg');
+    background-image: url('../assets/img/projects/gym_management_system.png');
 }
 
 .project-box:nth-child(9) span::after {
