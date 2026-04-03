@@ -11,21 +11,18 @@ body {
     min-height: 100vh;
     display: grid;
     place-items: center;
-    padding: 16px;
+    padding: 0px;
 }
 
 .slides {
     padding: 0;
     width: 100%;
-    max-width: 1240px;
-    height: min(88vh, 760px);
-    aspect-ratio: 16 / 9;
+    height: 100%;
     display: block;
     margin: 0;
     position: relative;
     overflow: hidden;
     list-style: none;
-    border-radius: 14px;
 }
 
 .slides * {
@@ -73,14 +70,12 @@ body {
     transition: opacity .2s;
 
     color: white;
-        font-size: clamp(40px, 6vw, 64px);
+    font-size: 64pt;
     text-align: center;
-        line-height: 1;
+    line-height: 200px;
     font-family: "Varela Round", sans-serif;
        
-            top: 0;
-            display: grid;
-            align-items: center;
+      top: 35%;      
     
 
 }
@@ -103,7 +98,7 @@ input:checked + .slide-container .nav label { display: block; }
 
 .nav-dots {
 	width: 100%;
-    bottom: 12px;
+    bottom: 8px;
 	height: 11px;
 	display: block;
 	position: absolute;
@@ -139,61 +134,26 @@ input#img-10:checked ~ .nav-dots label#img-dot-10{
 	background: rgb(255, 255, 255);
 }
 
-@media (max-width: 1024px) {
-    body {
-        padding: 12px;
-    }
-
-    .slides {
-        height: min(80vh, 640px);
-        border-radius: 10px;
-    }
-
-    .nav label {
-        width: 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        padding: 8px;
-    }
-
-    .slides {
-        height: auto;
-        aspect-ratio: 4 / 3;
-        border-radius: 8px;
-    }
-
-    .nav label {
-        width: 36px;
-        opacity: 0.65;
-    }
-
-    .nav-dots {
-        bottom: 10px;
-    }
-
-    .nav-dots .nav-dot {
-        width: 10px;
-        height: 10px;
-        margin: 0 3px;
-    }
-}
-
 @media (max-width: 480px) {
-    .slides {
-        aspect-ratio: 1 / 1;
-        max-height: 86vh;
-    }
+  .nav label {
+    font-size: 36pt;   /* was 64pt */
+    line-height: 120px;
+    top: 40%;
+    width: 36px;
+  }
+  .nav-dots .nav-dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+  }
+}
 
-    .nav label {
-        width: 30px;
-    }
-
-    .nav-dots .nav-dot {
-        width: 8px;
-        height: 8px;
-        margin: 0 2px;
-    }
+/* Tablet: medium nav arrows */
+@media (max-width: 768px) {
+  .nav label {
+    font-size: 48pt;   /* was 64pt */
+    line-height: 160px;
+    top: 38%;
+    width: 40px;
+  }
 }
