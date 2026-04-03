@@ -2146,7 +2146,7 @@ html[data-theme='light'] .flip-front .flip-inner p {
 }
 
 html[data-theme='light'] .flip-front .flip-inner span {
-    color: white;
+    color: rgb(239, 7, 7);
 }
 
 html[data-theme='light'] .flip-back .flip-inner p {
