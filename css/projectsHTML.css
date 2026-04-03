@@ -1,9 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
-html,
-body {
+html, body {
     min-height: 100%;
-    background: #333 url("https://codepen.io/images/classy_fabric.png");
+    background: #333;
 }
 
 body {
@@ -11,15 +10,17 @@ body {
     min-height: 100vh;
     display: grid;
     place-items: center;
-    padding: 0px;
+    padding: 0;
 }
+
 
 .slides {
     padding: 0;
     width: 100%;
-    height: 100%;
+    max-width: 900px;        
+    aspect-ratio: 16 / 9;    
     display: block;
-    margin: 0;
+    margin: 0 auto;
     position: relative;
     overflow: hidden;
     list-style: none;
@@ -40,85 +41,79 @@ body {
 
 .slide {
     top: 0;
+    left: 0;               
     opacity: 0;
     width: 100%;
     height: 100%;
     display: block;
     position: absolute;
-
     transform: scale(0);
-
     transition: all .7s ease-in-out;
 }
+
 
 .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;         
 }
 
 .nav label {
     width: 44px;
-    height: 100%;
+    height: auto;           
     display: none;
     position: absolute;
-
-	  opacity: 0;
+    opacity: 0;
     z-index: 9;
     cursor: pointer;
-
     transition: opacity .2s;
-
     color: white;
     font-size: 64pt;
     text-align: center;
-    line-height: 200px;
     font-family: "Varela Round", sans-serif;
-       
-      top: 35%;      
-    
-
+    top: 50%;               
+    transform: translateY(-50%);
+    line-height: 1;
+    padding: 10px 0;       
 }
 
 .slide:hover + .nav label { opacity: 0.5; }
-
 .nav label:hover { opacity: 1; }
-
 .nav .next { right: 0; }
 
-input:checked + .slide-container  .slide {
+input:checked + .slide-container .slide {
     opacity: 1;
-
     transform: scale(1);
-
     transition: opacity 1s ease-in-out;
 }
 
 input:checked + .slide-container .nav label { display: block; }
 
 .nav-dots {
-	width: 100%;
-    bottom: 8px;
-	height: 11px;
-	display: block;
-	position: absolute;
-	text-align: center;
+    width: 100%;
+    bottom: 10px;
+    height: 11px;
+    display: block;
+    position: absolute;
+    text-align: center;
+    z-index: 10;
 }
 
 .nav-dots .nav-dot {
-	top: -5px;
-	width: 11px;
-	height: 11px;
-	margin: 0 4px;
-	position: relative;
-	border-radius: 100%;
-	display: inline-block;
-	background-color: rgba(0, 0, 0, 0.6);
+    top: -5px;
+    width: 11px;
+    height: 11px;
+    margin: 0 4px;
+    position: relative;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .nav-dots .nav-dot:hover {
-	cursor: pointer;
-	background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
 }
 
 input#img-1:checked ~ .nav-dots label#img-dot-1,
@@ -130,30 +125,60 @@ input#img-6:checked ~ .nav-dots label#img-dot-6,
 input#img-7:checked ~ .nav-dots label#img-dot-7,
 input#img-8:checked ~ .nav-dots label#img-dot-8,
 input#img-9:checked ~ .nav-dots label#img-dot-9,
-input#img-10:checked ~ .nav-dots label#img-dot-10{
-	background: rgb(255, 255, 255);
+input#img-10:checked ~ .nav-dots label#img-dot-10 {
+    background: rgb(255, 255, 255);
 }
+
+
+@media (max-width: 768px) {
+    .slides {
+        aspect-ratio: 4 / 3;  
+        max-width: 100%;
+    }
+
+    .nav label {
+        font-size: 44pt;
+        width: 40px;
+        opacity: 0.4;           
+    }
+
+    input:checked + .slide-container .nav label {
+        display: block;
+        opacity: 0.4;
+    }
+
+    input:checked + .slide-container .nav label:active {
+        opacity: 1;
+    }
+
+    .nav-dots .nav-dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 3px;
+    }
+}
+
 
 @media (max-width: 480px) {
-  .nav label {
-    font-size: 36pt;   /* was 64pt */
-    line-height: 120px;
-    top: 40%;
-    width: 36px;
-  }
-  .nav-dots .nav-dot {
-    width: 8px;
-    height: 8px;
-    margin: 0 3px;
-  }
-}
+    .slides {
+        aspect-ratio: 1 / 1;  
+        max-width: 100%;
+    }
 
-/* Tablet: medium nav arrows */
-@media (max-width: 768px) {
-  .nav label {
-    font-size: 48pt;   /* was 64pt */
-    line-height: 160px;
-    top: 38%;
-    width: 40px;
-  }
+    .nav label {
+        font-size: 28pt;
+        width: 30px;
+        opacity: 0.5;
+    }
+
+    .nav-dots {
+        bottom: 8px;
+    }
+
+    .nav-dots .nav-dot {
+        width: 8px;
+        height: 8px;
+        margin: 0 2px;
+        top: -4px;
+    }
 }
