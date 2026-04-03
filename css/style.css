@@ -1537,6 +1537,10 @@ scroll{
     background-image: url('../assets/img/projects/bbbbbbbb-removebg-preview.png');
 }
 
+.project-box:nth-child(7) span::before {
+    background-image: url('../assets/img/projects/psms.png');
+}
+
 /*podi box deka */
 .project-box:hover span::before {
     top: -50px;
@@ -1586,6 +1590,10 @@ scroll{
 
 .project-box:nth-child(6) span::after {
     background-image: url('../assets/img/projects/aaaaaaaaaaa.png');
+}
+
+.project-box:nth-child(7) span::after {
+    background-image: url('../assets/img/projects/images-removebg-preview.png');
 }
 
 .project-box:hover span::after {
