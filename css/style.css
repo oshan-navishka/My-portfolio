@@ -1493,6 +1493,11 @@ scroll{
     background: linear-gradient(315deg, #49b7ba, #292fa2);
 }
 
+.project-box:nth-child(9)::before,
+.project-box:nth-child(9)::after {
+    background: linear-gradient(315deg, #49b7ba, #292fa2);
+}
+
 .project-box span {
     display: block;
     position: absolute;
@@ -1548,6 +1553,10 @@ scroll{
 
 .project-box:nth-child(8) span::before {
     background-image: url('../assets/img/projects/FoodCityLogoWhStr3.webp');
+}
+
+.project-box:nth-child(9) span::before {
+    background-image: url('../assets/img/projects/prf1.png');
 }
 
 /*podi box deka */
@@ -1607,6 +1616,10 @@ scroll{
 
 .project-box:nth-child(8) span::after {
     background-image: url('../assets/img/projects/348s.jpg');
+}
+
+.project-box:nth-child(9) span::after {
+    background-image: url('../assets/img/projects/prf3.png');
 }
 
 .project-box:hover span::after {
