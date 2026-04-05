@@ -1867,7 +1867,7 @@ scroll{
 }
 
 .assign-col:nth-child(3) .flip-back {
-    background-image: url("../assets/img/assigment/case-3.png");
+    background-image: url("../assets/img/assigment/case-3.gif");
 }
 
 .flip-back::after {
