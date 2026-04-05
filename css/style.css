@@ -2268,6 +2268,7 @@ html[data-theme='light'] .btn.download-cv:hover {
 
 /*gallery section*/
 .gallery-section {
+    --gallery-zoom: 1;
     padding-block: clamp(40px, 6vw, 72px);
     position: relative;
     overflow: hidden;
@@ -2292,6 +2293,8 @@ html[data-theme='light'] .btn.download-cv:hover {
     grid-auto-rows: clamp(10rem, 22vw, 14rem);
     grid-auto-flow: dense;
     gap: 0.75rem;
+    transform: scale(var(--gallery-zoom));
+    transform-origin: top center;
 }
 
 .gallery-section .gallery figure {
@@ -2360,6 +2363,12 @@ html[data-theme='light'] .btn.download-cv:hover {
 @media (max-width: 900px) {
     .gallery-section .main {
         padding: 0 0.75rem;
+    }
+}
+
+@media (min-width: 901px) {
+    .gallery-section {
+        --gallery-zoom: 0.92;
     }
 }
 
