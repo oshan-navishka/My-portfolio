@@ -79,7 +79,7 @@ if (themeToggle) {
 const typewriterElement = document.getElementById("typewriterText");
 
 if (typewriterElement) {
-  const roles = ["Software Engineer", "Frontend Developer"];
+  const roles = ["Software Engineer", "Web Designer"];
   let roleIndex = 0;
   let charIndex = 0;
   let deleting = false;
