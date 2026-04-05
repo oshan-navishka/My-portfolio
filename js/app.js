@@ -1,5 +1,6 @@
 const loader = document.getElementById("loading");
 const progressBar = document.getElementById("progress-bar");
+const progressPercentage = document.getElementById("progress-percentage");
 
 if (loader && progressBar) {
   let progress = 0;
@@ -7,6 +8,10 @@ if (loader && progressBar) {
   let interval = setInterval(() => {
     progress += 1;
     progressBar.style.width = progress + "%";
+
+    if (progressPercentage) {
+      progressPercentage.textContent = progress + "%";
+    }
 
     if (progress >= 100) {
       clearInterval(interval);
