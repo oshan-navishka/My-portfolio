@@ -500,7 +500,7 @@ body {
 footer {
     padding: 0;
     border-top: 1px solid var(--border-soft);
-    background: #020f2a;
+    background: var(--dark);
 }
 
 .footer-container {
@@ -595,14 +595,24 @@ footer {
 }
 
 .footer-link {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
     text-decoration: none;
     color: var(--text-muted);
-    font-size: 1.02rem;
-    transition: color 0.22s ease;
+    font-size: 0.98rem;
+    transition: color 0.22s ease, transform 0.2s ease, border-color 0.22s ease, background 0.22s ease;
 }
 
 .footer-link:hover {
     color: #dbe5ff;
+    transform: translateX(2px);
+    border-color: rgba(139, 92, 246, 0.45);
+    background: rgba(139, 92, 246, 0.12);
 }
 
 .footer-social {
@@ -2381,10 +2391,14 @@ html[data-theme='light'] .footer-profile-icon {
 html[data-theme='light'] .footer-role,
 html[data-theme='light'] .footer-link {
     color: var(--text-muted);
+    border-color: rgba(15, 23, 42, 0.16);
+    background: rgba(15, 23, 42, 0.03);
 }
 
 html[data-theme='light'] .footer-link:hover {
     color: var(--page-text);
+    border-color: rgba(110, 69, 226, 0.45);
+    background: rgba(110, 69, 226, 0.1);
 }
 
 html[data-theme='light'] .footer-contact-item {
