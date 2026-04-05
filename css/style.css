@@ -2562,7 +2562,7 @@ html[data-theme='light'] .btn.download-cv:hover {
 
 /*contact section*/
 .contact-section {
-    padding: clamp(48px, 7vw, 84px) 0;
+    padding: clamp(18px, 5vw, 10px) 0;
     position: relative;
 }
 
