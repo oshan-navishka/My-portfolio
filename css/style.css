@@ -2444,7 +2444,71 @@ html[data-theme='light'] .btn.download-cv:hover {
     filter: grayscale(100%);
 }
 
+.gallery-section .carousel .carousel-item:hover a {
+    filter: grayscale(0%);
+}
 
+.gallery-section .carousel .carousel-item a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+}
+
+.gallery-section .carousel .carousel-item-reflection {
+    width: inherit;
+    height: inherit;
+    pointer-events: none;
+    filter: blur(var(--carousel-item-reflection-blur)) grayscale(100%);
+    transition: filter var(--carousel-transition-duration) var(--carousel-transition-ease);
+    transform-style: preserve-3d;
+    transform-origin: center bottom;
+    transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 75%);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 75%);
+}
+
+.gallery-section .carousel .carousel-item:hover .carousel-item-reflection {
+    filter: blur(var(--carousel-item-reflection-blur)) grayscale(0%);
+}
+
+.gallery-section .carousel .carousel-item-reflection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-section .carousel .carousel-ground {
+    --_width: var(--_diameter);
+    --_height: var(--_diameter);
+    --_rotation: 90deg;
+    left: calc(var(--_radius) - var(--_width) / 2);
+    top: calc(var(--_radius) - var(--_height) / 2);
+    transform: rotateX(var(--_rotation)) translateZ(calc(var(--_item-height) / -2));
+    width: var(--_width);
+    height: var(--_height);
+    border-radius: 50%;
+    background: radial-gradient(rgba(var(--carousel-shadow-color-rgb), 0.75) 15%, rgba(var(--carousel-bg-color-rgb), 0) 60%);
+    opacity: 0.5;
+    transition: opacity var(--carousel-transition-duration) var(--carousel-transition-ease);
+    position: absolute;
+}
+
+.gallery-section .carousel .carousel-item-wrapper:has(.carousel-item:hover) .carousel-ground {
+    opacity: 0.75;
+}
+
+.gallery-section .carousel {
+    --carousel-3d-perspective-origin: 50% 20%;
+    margin: -90px auto 0; 
+}
 
 
 /*contact section*/
