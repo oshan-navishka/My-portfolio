@@ -177,11 +177,11 @@ body {
 }
 
 .assign-col:nth-child(10) .flip-back {
-    background-image: url("../assets/img/assigment/case-10.png");
+    background-image: url("../assets/img/assigment/case-10.gif");
 }
 
 .assign-col:nth-child(11) .flip-back {
-    background-image: url("../assets/img/assigment/case-11.png");
+    background-image: url("../assets/img/assigment/case-11.gif");
 }
 
 .assign-col:nth-child(12) .flip-back {
