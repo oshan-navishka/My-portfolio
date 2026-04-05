@@ -694,11 +694,11 @@ footer {
     box-shadow: var(--shadow-soft);
 }
 
-/* ── Scroll Controls ── */
+/* ── Scroll Arrow Buttons ── */
 .scroll-controls {
     position: fixed;
-    right: clamp(14px, 2vw, 24px);
-    bottom: clamp(14px, 3vw, 28px);
+    right: clamp(12px, 2vw, 22px);
+    bottom: clamp(12px, 2.5vw, 24px);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -708,28 +708,33 @@ footer {
 .scroll-control {
     width: 46px;
     height: 46px;
+    border-radius: 999px;
     border: 1px solid var(--border-strong);
-    border-radius: 50%;
+    background: var(--surface-strong);
+    color: var(--page-text);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--surface-strong);
-    color: var(--page-text);
+    text-decoration: none;
     box-shadow: var(--shadow-soft);
-    cursor: pointer;
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
     backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .scroll-control:hover {
     transform: translateY(-3px);
-    background: linear-gradient(135deg, rgba(110, 69, 226, 0.9), rgba(136, 211, 206, 0.8));
+    background: linear-gradient(135deg, rgba(110, 69, 226, 0.95), rgba(136, 211, 206, 0.9));
     border-color: transparent;
     color: #fff;
 }
 
 .scroll-control:active {
-    transform: translateY(-1px) scale(0.98);
+    transform: scale(0.96);
+}
+
+.scroll-control:focus-visible {
+    outline: 2px solid rgba(136, 211, 206, 0.8);
+    outline-offset: 2px;
 }
 
 .scroll-control i {
@@ -737,13 +742,13 @@ footer {
 }
 
 html[data-theme='light'] .scroll-control {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 @media (max-width: 600px) {
     .scroll-controls {
-        right: 12px;
-        bottom: 12px;
+        right: 10px;
+        bottom: 10px;
         gap: 8px;
     }
 
@@ -3112,3 +3117,4 @@ html[data-theme='light'] .btn.download-cv:hover {
 
 
 
+/**sdfghjklkjhgfdsdfghjklkjhgfd/

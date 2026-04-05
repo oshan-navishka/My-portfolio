@@ -120,4 +120,4 @@ if (typewriterElement) {
 
   setTimeout(tick, 500);
 }
-
+/*sdfghjkl;lkjhgfdfghjklkjhbv*/
