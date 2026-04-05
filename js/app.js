@@ -21,6 +21,15 @@ if (loader && progressBar) {
   }, 20);
 }
 
+
+AOS.init({
+    once: false,
+    duration: 700,
+    easing: 'ease-out-cubic',
+    offset: 80
+});
+
+
 // Skills cards scroll animation
 const skillCards = document.querySelectorAll('.card');
 
