@@ -52,6 +52,40 @@ body {
     line-height: 1.6;
 }
 
+/* ── Plexus Background ── */
+#plexus-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+    display: block;
+    filter: saturate(1.08) contrast(1.04);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(85% 60% at 50% 15%, rgba(10, 20, 45, 0.20), transparent 72%),
+        linear-gradient(180deg, rgba(4, 8, 20, 0.22), rgba(4, 8, 20, 0.42));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #plexus-bg {
+        opacity: 0.65;
+    }
+}
+
+html[data-theme='light'] #plexus-bg,
+html[data-theme='light'] body::before {
+    display: none;
+}
+
 .assignments-section {
     padding: var(--section-space) 0;
     position: relative;
