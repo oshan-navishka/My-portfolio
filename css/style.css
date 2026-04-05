@@ -2930,6 +2930,19 @@ html[data-theme='light'] .btn.download-cv:hover {
 
     .gallery-section .gallery {
         grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        transform: none;
+        gap: 0.85rem;
+    }
+
+    .gallery-section .gallery figure {
+        aspect-ratio: 4 / 3;
+    }
+
+    .gallery-section .gallery img {
+        object-fit: contain;
+        object-position: center;
+        background: rgba(0, 0, 0, 0.16);
     }
 
     .contact-panel,
@@ -2982,6 +2995,18 @@ html[data-theme='light'] .btn.download-cv:hover {
     .tools-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
+    }
+
+    .gallery-section .gallery {
+        gap: 0.7rem;
+    }
+
+    .gallery-section .gallery figure {
+        aspect-ratio: 1 / 1;
+    }
+
+    .gallery-section .gallery img {
+        padding: 6px;
     }
 
     .project-links a {
