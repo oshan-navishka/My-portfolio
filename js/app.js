@@ -74,3 +74,49 @@ if (themeToggle) {
     applyTheme(nextTheme);
   });
 }
+
+// Hero typewriter animation
+const typewriterElement = document.getElementById("typewriterText");
+
+if (typewriterElement) {
+  const roles = ["Software Engineer", "Frontend Developer"];
+  let roleIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  const typeSpeed = 95;
+  const deleteSpeed = 55;
+  const holdDelay = 1200;
+
+  function tick() {
+    const currentRole = roles[roleIndex];
+
+    if (!deleting) {
+      typewriterElement.textContent = currentRole.slice(0, charIndex + 1);
+      charIndex += 1;
+
+      if (charIndex === currentRole.length) {
+        deleting = true;
+        setTimeout(tick, holdDelay);
+        return;
+      }
+
+      setTimeout(tick, typeSpeed);
+      return;
+    }
+
+    typewriterElement.textContent = currentRole.slice(0, charIndex - 1);
+    charIndex -= 1;
+
+    if (charIndex === 0) {
+      deleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(tick, 250);
+      return;
+    }
+
+    setTimeout(tick, deleteSpeed);
+  }
+
+  setTimeout(tick, 500);
+}
