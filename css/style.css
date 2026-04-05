@@ -1825,7 +1825,7 @@ scroll{
 .flip-front {
     transform: rotateY(0deg);
     transform-style: preserve-3d;
-    background-image: url('../assets/img/assigment/ChatGPT\ Image\ Apr\ 3\,\ 2026\,\ 02_35_04\ PM.png');
+    background-image: url('../assets/img/assigment/animated_fancy.gif');
     background-color: rgba(26, 26, 46, 0.9);
 }
 
@@ -2162,7 +2162,7 @@ html[data-theme='light'] .flip-front {
     background-color: rgba(240, 242, 255, 0.95);
     border-color: var(--border-soft);
     box-shadow: 0 4px 20px rgba(15, 23, 42, 0.1);
-    background-image: url('../assets/img/assigment/light_mode_image.png');
+    background-image: url('../assets/img/assigment/animated_second.gif');
 }
 
 html[data-theme='light'] .flip-front::after {
