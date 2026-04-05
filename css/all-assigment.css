@@ -185,15 +185,15 @@ body {
 }
 
 .assign-col:nth-child(12) .flip-back {
-    background-image: url("../assets/img/assigment/case-12.png");
+    background-image: url("../assets/img/assigment/case-12.gif");
 }
 
 .assign-col:nth-child(13) .flip-back {
-    background-image: url("../assets/img/assigment/case-13.png");
+    background-image: url("../assets/img/assigment/case-13.gif");
 }
 
 .assign-col:nth-child(14) .flip-back {
-    background-image: url("../assets/img/assigment/case-14.png");
+    background-image: url("../assets/img/assigment/case-14.gif");
 }
 
 .flip-back::after {
