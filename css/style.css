@@ -93,6 +93,11 @@ body::before {
     }
 }
 
+html[data-theme='light'] #plexus-bg,
+html[data-theme='light'] body::before {
+    display: none;
+}
+
 /* ── Navbar ── */
 .navbar {
     position: fixed;

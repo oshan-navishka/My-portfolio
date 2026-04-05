@@ -368,6 +368,41 @@ if (typewriterElement) {
     palette = getThemePalettes();
   }
 
+  function isLightMode() {
+    return document.documentElement.getAttribute("data-theme") === "light";
+  }
+
+  function stopLoop() {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = 0;
+    }
+
+    if (width > 0 && height > 0) {
+      ctx.clearRect(0, 0, width, height);
+    }
+  }
+
+  function startLoop() {
+    if (!rafId) {
+      state.lastTs = 0;
+      rafId = window.requestAnimationFrame(tick);
+    }
+  }
+
+  function applyPlexusMode() {
+    const hiddenInLight = isLightMode();
+    canvas.style.display = hiddenInLight ? "none" : "block";
+
+    if (hiddenInLight) {
+      stopLoop();
+      return;
+    }
+
+    refreshPaletteFromTheme();
+    startLoop();
+  }
+
   function init() {
     resize();
     refreshPaletteFromTheme();
@@ -383,9 +418,9 @@ if (typewriterElement) {
       updatePointer(e.touches[0].clientX, e.touches[0].clientY);
     }, { passive: true });
 
-    // Refresh palette when theme/data attribute changes
+    // Refresh/restart when theme changes
     const observer = new MutationObserver(() => {
-      refreshPaletteFromTheme();
+      applyPlexusMode();
     });
 
     observer.observe(document.documentElement, {
@@ -393,8 +428,7 @@ if (typewriterElement) {
       attributeFilter: ["data-theme"]
     });
 
-    if (rafId) cancelAnimationFrame(rafId);
-    rafId = window.requestAnimationFrame(tick);
+    applyPlexusMode();
   }
 
   if (document.readyState === "loading") {
