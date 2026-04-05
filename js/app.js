@@ -120,3 +120,4 @@ if (typewriterElement) {
 
   setTimeout(tick, 500);
 }
+
