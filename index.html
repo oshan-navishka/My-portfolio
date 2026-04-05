@@ -612,55 +612,55 @@
 <!--`gallery section-->
 <section id="gallery" class="gallery-section">
     <div class="container">
-        <h2 class="section-title">Gallery</h2>
-        <p class="tools-subtitle">A Collection of Beautiful and Unforgettable Memories...</p>
+    <h2 class="section-title" data-aos="fade-up">Gallery</h2>
+    <p class="tools-subtitle" data-aos="fade-up" data-aos-delay="100">A Collection of Beautiful and Unforgettable Memories...</p>
 
         <div class="gallery">
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="50">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.12 (1).jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="100">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.09 (1).jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="150">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.09.jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="200">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.13(1).jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="250">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.16.jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="300">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.12.jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="350">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.14 (1).jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="400">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.14.jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="450">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.15 (1).jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="500">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.15 (2).jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="550">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.15.jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
-            <figure>
+      <figure data-aos="zoom-in" data-aos-delay="600">
             <img src="assets/img/gallery/WhatsApp Image 2026-04-05 at 23.30.13.jpeg" alt="Lorem ipsum dolor sit amet">
             </figure>
 
@@ -729,7 +729,7 @@
 <footer>
     <div class="container footer-container">
         <div class="footer-top">
-      <div class="footer-profile">
+      <div class="footer-profile" data-aos="fade-up" data-aos-delay="100">
         <div class="footer-profile-icon">
           <i class="fab fa-github"></i>
         </div>
@@ -737,7 +737,7 @@
         <p class="footer-role">Software Engineer</p>
             </div>
 
-      <div class="footer-col">
+      <div class="footer-col" data-aos="fade-up" data-aos-delay="180">
         <h4 class="footer-heading">Contact Info</h4>
         <div class="footer-line"></div>
         <div class="footer-contact-list">
@@ -747,7 +747,7 @@
         </div>
             </div>
 
-      <div class="footer-col">
+      <div class="footer-col" data-aos="fade-up" data-aos-delay="260">
         <h4 class="footer-heading">Follow Me</h4>
         <div class="footer-line"></div>
         <div class="footer-social">
@@ -761,7 +761,7 @@
         </div>
       </div>
 
-      <div class="footer-col">
+      <div class="footer-col" data-aos="fade-up" data-aos-delay="340">
         <h4 class="footer-heading">Quick Links</h4>
         <div class="footer-line"></div>
         <div class="footer-links">
@@ -775,7 +775,7 @@
 
         <div class="footer-divider"></div>
 
-        <div class="footer-bottom">
+        <div class="footer-bottom" data-aos="fade-up" data-aos-delay="420">
             <p class="copyright">© 2026 Oshan Navishka. All Rights Reserved.</p>
         </div>
     </div>
@@ -785,7 +785,12 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
   <script>
-    AOS.init();
+    AOS.init({
+      once: true,
+      duration: 700,
+      easing: 'ease-out-cubic',
+      offset: 80
+    });
   </script>
 </body>
 </html>
