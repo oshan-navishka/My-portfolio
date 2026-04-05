@@ -120,4 +120,286 @@ if (typewriterElement) {
 
   setTimeout(tick, 500);
 }
-/*sdfghjkl;lkjhgfdfghjklkjhbv*/
+// Plexus background animation
+(() => {
+  const canvas = document.getElementById("plexus-bg");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d", { alpha: true });
+  if (!ctx) return;
+
+  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  let width = 0;
+  let height = 0;
+  let rafId = 0;
+  let particles = [];
+
+  const state = {
+    pointerX: 0,
+    pointerY: 0,
+    currentX: 0,
+    currentY: 0,
+    initializedPointer: false,
+    colorBlend: 0,
+    colorIndex: 0,
+    nextColorIndex: 1,
+    lastTs: 0
+  };
+
+  const CONFIG = {
+    virtualW: 1920,
+    virtualH: 1080,
+    connectDistance: 180,
+    dotMin: 1.5,
+    dotMax: 3.2,
+    speedMin: 0.18,
+    speedMax: 0.44,
+    colorShiftSpeed: 0.0017,
+    pointerLerp: 0.05,
+    pointerInfluence: 0.045
+  };
+
+  function hexToRgb(hex) {
+    const clean = hex.replace("#", "").trim();
+    const full = clean.length === 3
+      ? clean.split("").map((c) => c + c).join("")
+      : clean;
+
+    const r = parseInt(full.slice(0, 2), 16);
+    const g = parseInt(full.slice(2, 4), 16);
+    const b = parseInt(full.slice(4, 6), 16);
+    return { r, g, b };
+  }
+
+  function rgbString({ r, g, b }) {
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  function rgbaString({ r, g, b }, a) {
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
+  }
+
+  function mixRgb(a, b, t) {
+    return {
+      r: Math.round(a.r + (b.r - a.r) * t),
+      g: Math.round(a.g + (b.g - a.g) * t),
+      b: Math.round(a.b + (b.b - a.b) * t)
+    };
+  }
+
+  function getThemePalettes() {
+    const styles = getComputedStyle(document.documentElement);
+    const primary = styles.getPropertyValue("--primary").trim() || "#6e45e2";
+    const secondary = styles.getPropertyValue("--secondary").trim() || "#88d3ce";
+
+    const p = hexToRgb(primary);
+    const s = hexToRgb(secondary);
+
+    return [
+      mixRgb(p, s, 0.15),
+      mixRgb(p, s, 0.45),
+      mixRgb(p, s, 0.75),
+      mixRgb(p, { r: 214, g: 245, b: 255 }, 0.5),
+      mixRgb(s, { r: 176, g: 255, b: 242 }, 0.55)
+    ];
+  }
+
+  let palette = getThemePalettes();
+
+  class Particle {
+    constructor() {
+      this.reset(true);
+    }
+
+    reset(initial = false) {
+      const xMax = CONFIG.virtualW;
+      const yMax = CONFIG.virtualH;
+
+      this.x = initial ? Math.random() * xMax : (Math.random() < 0.5 ? -20 : xMax + 20);
+      this.y = initial ? Math.random() * yMax : Math.random() * yMax;
+
+      const speed = CONFIG.speedMin + Math.random() * (CONFIG.speedMax - CONFIG.speedMin);
+      const angle = Math.random() * Math.PI * 2;
+      this.vx = Math.cos(angle) * speed;
+      this.vy = Math.sin(angle) * speed;
+      this.r = CONFIG.dotMin + Math.random() * (CONFIG.dotMax - CONFIG.dotMin);
+      this.bias = Math.random() * Math.PI * 2;
+    }
+
+    update(pointerNx, pointerNy) {
+      // Subtle and elegant pointer influence
+      this.x += this.vx + pointerNx * CONFIG.pointerInfluence;
+      this.y += this.vy + pointerNy * CONFIG.pointerInfluence;
+
+      if (this.x < -30) this.x = CONFIG.virtualW + 30;
+      if (this.x > CONFIG.virtualW + 30) this.x = -30;
+      if (this.y < -30) this.y = CONFIG.virtualH + 30;
+      if (this.y > CONFIG.virtualH + 30) this.y = -30;
+    }
+
+    sx() {
+      return (this.x / CONFIG.virtualW) * width;
+    }
+
+    sy() {
+      return (this.y / CONFIG.virtualH) * height;
+    }
+  }
+
+  function getParticleCount() {
+    if (reduceMotionQuery.matches) return 36;
+    if (window.innerWidth <= 480) return 46;
+    if (window.innerWidth <= 768) return 58;
+    return 84;
+  }
+
+  function resetParticles() {
+    const count = getParticleCount();
+    particles = Array.from({ length: count }, () => new Particle());
+  }
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    resetParticles();
+
+    if (!state.initializedPointer) {
+      state.pointerX = width * 0.5;
+      state.pointerY = height * 0.5;
+      state.currentX = state.pointerX;
+      state.currentY = state.pointerY;
+      state.initializedPointer = true;
+    }
+  }
+
+  function updatePointer(clientX, clientY) {
+    state.pointerX = clientX;
+    state.pointerY = clientY;
+  }
+
+  function tick(ts) {
+    if (!state.lastTs) state.lastTs = ts;
+    const dt = ts - state.lastTs;
+    state.lastTs = ts;
+
+    // Keep timing stable if tab was inactive
+    const normalizedDt = Math.min(Math.max(dt, 8), 34);
+
+    state.currentX += (state.pointerX - state.currentX) * CONFIG.pointerLerp;
+    state.currentY += (state.pointerY - state.currentY) * CONFIG.pointerLerp;
+
+    const nx = ((state.currentX / Math.max(width, 1)) * 2 - 1) * 0.9;
+    const ny = ((state.currentY / Math.max(height, 1)) * 2 - 1) * 0.9;
+
+    state.colorBlend += CONFIG.colorShiftSpeed * normalizedDt;
+    if (state.colorBlend >= 1) {
+      state.colorBlend = 0;
+      state.colorIndex = state.nextColorIndex;
+      state.nextColorIndex = (state.nextColorIndex + 1) % palette.length;
+    }
+
+    const currentColor = mixRgb(
+      palette[state.colorIndex],
+      palette[state.nextColorIndex],
+      state.colorBlend
+    );
+
+    ctx.clearRect(0, 0, width, height);
+
+    const maxDistance = (CONFIG.connectDistance / CONFIG.virtualW) * width;
+
+    for (let i = 0; i < particles.length; i += 1) {
+      particles[i].update(nx, ny);
+    }
+
+    // Lines
+    for (let i = 0; i < particles.length; i += 1) {
+      const p1x = particles[i].sx();
+      const p1y = particles[i].sy();
+
+      for (let j = i + 1; j < particles.length; j += 1) {
+        const p2x = particles[j].sx();
+        const p2y = particles[j].sy();
+        const dx = p1x - p2x;
+        const dy = p1y - p2y;
+        const dist = Math.hypot(dx, dy);
+
+        if (dist < maxDistance) {
+          const alpha = (1 - dist / maxDistance) * 0.34;
+          ctx.strokeStyle = rgbaString(currentColor, alpha);
+          ctx.lineWidth = 0.8;
+          ctx.beginPath();
+          ctx.moveTo(p1x, p1y);
+          ctx.lineTo(p2x, p2y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Dots
+    for (let i = 0; i < particles.length; i += 1) {
+      const p = particles[i];
+      const x = p.sx();
+      const y = p.sy();
+
+      ctx.beginPath();
+      ctx.arc(x, y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = rgbString(currentColor);
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = rgbString(currentColor);
+      ctx.fill();
+    }
+
+    // Reset shadow for other canvas operations
+    ctx.shadowBlur = 0;
+    rafId = window.requestAnimationFrame(tick);
+  }
+
+  function refreshPaletteFromTheme() {
+    palette = getThemePalettes();
+  }
+
+  function init() {
+    resize();
+    refreshPaletteFromTheme();
+
+    window.addEventListener("resize", resize, { passive: true });
+
+    window.addEventListener("mousemove", (e) => {
+      updatePointer(e.clientX, e.clientY);
+    }, { passive: true });
+
+    window.addEventListener("touchmove", (e) => {
+      if (!e.touches || e.touches.length === 0) return;
+      updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
+
+    // Refresh palette when theme/data attribute changes
+    const observer = new MutationObserver(() => {
+      refreshPaletteFromTheme();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"]
+    });
+
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = window.requestAnimationFrame(tick);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else {
+    init();
+  }
+})();
