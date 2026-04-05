@@ -915,9 +915,16 @@ html[data-theme='light'] .assign-btn.code-btn {
         align-items: center;
         gap: 8px;
         flex-wrap: nowrap;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.2;
+    }
+
+    .tw-start {
+        font-size: inherit;
     }
 
     .typewriter-wrap {
+        font-size: inherit;
         min-width: 140px;
     }
 }
