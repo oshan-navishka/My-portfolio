@@ -3022,8 +3022,8 @@ html[data-theme='light'] .btn.download-cv:hover {
     }
 
     .hero-subtitle {
-        justify-content: flex-start;
-        text-align: left;
+        justify-content: center;
+        text-align: center;
     }
 
     .social-icons {
