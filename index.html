@@ -724,7 +724,7 @@
             </div>
     </div>
 
-      <form class="contact-form" action="mailto:oshannavishka1234@gmail.com" method="post" enctype="text/plain" data-aos="fade-left" data-aos-delay="180">
+      <form id="contact-form" class="contact-form" data-aos="fade-left" data-aos-delay="180">
         <label for="name">Full Name</label>
         <input id="name" name="name" type="text" placeholder="Enter your name" required>
 
@@ -732,12 +732,13 @@
         <input id="email" name="email" type="email" placeholder="Enter your email" required>
 
         <label for="subject">Subject</label>
-        <input id="subject" name="subject" type="text" placeholder="Project discussion">
+        <input id="subject" name="subject" type="text" placeholder="Project discussion" required>
 
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" placeholder="Tell me about your project" required></textarea>
 
         <button type="submit" class="contact-submit">Send Message</button>
+        <p id="contact-status" class="contact-status" aria-live="polite"></p>
       </form>
     </div>
   </div>

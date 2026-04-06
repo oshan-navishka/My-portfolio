@@ -2818,6 +2818,22 @@ html[data-theme='light'] .btn.download-cv:hover {
     box-shadow: 0 10px 24px rgba(110, 69, 226, 0.35);
 }
 
+.contact-status {
+    min-height: 1.25rem;
+    margin: 2px 0 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.contact-status.is-success {
+    color: #10b981;
+}
+
+.contact-status.is-error {
+    color: #ef4444;
+}
+
 @media (max-width: 900px) {
     .contact-layout {
         grid-template-columns: 1fr;
