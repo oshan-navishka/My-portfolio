@@ -544,6 +544,7 @@ if (typewriterElement) {
 
     const data = new FormData();
     data.append("name", name);
+    data.append("email", email);
     data.append("_subject", subjectInput);
     data.append("_captcha", "false");
     data.append("_replyto", email);
@@ -571,13 +572,15 @@ if (typewriterElement) {
       const success = response.ok && (result.success === "true" || result.success === true || Object.keys(result).length === 0);
 
       if (!success) {
-        throw new Error("Form submit failed");
+        const apiMessage = typeof result?.message === "string" ? result.message : "Form submit failed";
+        throw new Error(apiMessage);
       }
 
       setStatus("Message sent successfully. I will contact you soon.", "is-success");
       form.reset();
     } catch (error) {
-      setStatus("Message send failed. Please try again in a moment.", "is-error");
+      const message = error instanceof Error ? error.message : "Message send failed. Please try again in a moment.";
+      setStatus(`${message}. If this is your first submit, verify the FormSubmit activation email.`, "is-error");
     } finally {
       if (submitButton) {
         submitButton.disabled = false;

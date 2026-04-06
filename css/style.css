@@ -2832,6 +2832,7 @@ html[data-theme='light'] .btn.download-cv:hover {
 
 .contact-status.is-error {
     color: #ef4444;
+
 }
 
 @media (max-width: 900px) {
