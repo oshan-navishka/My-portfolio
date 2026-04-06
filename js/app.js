@@ -470,10 +470,15 @@ if (typewriterElement) {
 
     const data = new FormData();
     // Keep mail clean: use typed subject as mail subject and send only message in body.
-    data.append("message", message);
+    // Replace the existing data.append lines with these:
+    data.append("name", name);
     data.append("_subject", subjectInput);
     data.append("_captcha", "false");
     data.append("_replyto", email);
+    data.append("_template", "table");  // ← clean table format email එකට
+    data.append("message", 
+      `Name: ${name}\nEmail: ${email}\nSubject: ${subjectInput}\n\nMessage:\n${message}`
+    );
 
     if (submitButton) {
       submitButton.disabled = true;
