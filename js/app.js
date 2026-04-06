@@ -368,6 +368,10 @@ if (typewriterElement) {
     palette = getThemePalettes();
   }
 
+  function isLightMode() {
+    return document.documentElement.getAttribute("data-theme") === "light";
+  }
+
   function stopLoop() {
     if (rafId) {
       cancelAnimationFrame(rafId);
@@ -387,6 +391,12 @@ if (typewriterElement) {
   }
 
   function applyPlexusMode() {
+    if (isLightMode()) {
+      canvas.style.display = "none";
+      stopLoop();
+      return;
+    }
+
     canvas.style.display = "block";
     refreshPaletteFromTheme();
     startLoop();
