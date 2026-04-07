@@ -75,6 +75,7 @@ if (themeToggle) {
   });
 }
 
+
 // Hero typewriter animation
 const typewriterElement = document.getElementById("typewriterText");
 
