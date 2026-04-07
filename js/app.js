@@ -75,6 +75,47 @@ if (themeToggle) {
   });
 }
 
+// Mobile navbar toggle (works without Bootstrap JS)
+(() => {
+  const navToggle = document.querySelector(".navbar-toggler");
+  const navCollapse = document.getElementById("navbarNav");
+  if (!navToggle || !navCollapse) return;
+
+  const closeMenu = () => {
+    navCollapse.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+  };
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = navCollapse.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navCollapse.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        closeMenu();
+      }
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (window.innerWidth > 768) return;
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const clickInsideMenu = navCollapse.contains(target) || navToggle.contains(target);
+    if (!clickInsideMenu) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      closeMenu();
+    }
+  });
+})();
 
 // Hero typewriter animation
 const typewriterElement = document.getElementById("typewriterText");
