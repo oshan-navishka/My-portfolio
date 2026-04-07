@@ -206,6 +206,7 @@ html[data-theme='light'] body::before {
     gap: 5px;
     background: none;
     border: none;
+    color: var(--page-text);
     cursor: pointer;
     padding: 6px;
 }
@@ -214,9 +215,29 @@ html[data-theme='light'] body::before {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--page-text);
+    position: relative;
+    background: currentColor;
     border-radius: 2px;
     transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+}
+
+.navbar-toggler-icon::before {
+    top: -7px;
+}
+
+.navbar-toggler-icon::after {
+    top: 7px;
 }
 
 .navbar-collapse {
@@ -2514,6 +2535,10 @@ html[data-theme='light'] .navbar {
 
 html[data-theme='light'] .navbar-toggler-icon {
     background: var(--page-text);
+}
+
+html[data-theme='light'] .navbar-toggler {
+    color: var(--page-text);
 }
 
 html[data-theme='light'] .navbar-collapse {

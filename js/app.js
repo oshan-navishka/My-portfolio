@@ -11,7 +11,7 @@ if (loader && progressBar) {
     if (progress >= 100) {
       clearInterval(interval);
 
-      // fade out loader
+  
       loader.style.opacity = "0";
 
       setTimeout(() => {
