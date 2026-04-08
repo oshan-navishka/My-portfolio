@@ -202,6 +202,14 @@ color: var(--page-text);
 width: 70%;
 }
 
+.nav-link.active {
+color: var(--page-text);
+}
+
+.nav-link.active::after {
+width: 70%;
+}
+
 @media (hover: none) and (pointer: coarse) {
 .nav-link {
 padding: 10px 12px;
