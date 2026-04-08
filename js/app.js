@@ -246,7 +246,6 @@ if (typewriterElement) {
       mixRgb(s, { r: 176, g: 255, b: 242 }, 0.55)
     ];
   }
-
   let palette = getThemePalettes();
 
   class Particle {
@@ -478,81 +477,6 @@ if (typewriterElement) {
     init();
   }
 })();
-
-// Contact form submit via FormSubmit AJAX API
-// (() => {
-//   const form = document.getElementById("contact-form");
-//   if (!form) return;
-
-//   const submitButton = form.querySelector(".contact-submit");
-//   const statusText = document.getElementById("contact-status");
-//   const endpoint = "https://formsubmit.co/ajax/oshannavishka1234@gmail.com";
-
-//   function setStatus(message, type = "") {
-//     if (!statusText) return;
-//     statusText.textContent = message;
-//     statusText.classList.remove("is-success", "is-error");
-//     if (type) {
-//       statusText.classList.add(type);
-//     }
-//   }
-
-//   form.addEventListener("submit", async (event) => {
-//     event.preventDefault();
-
-//     if (!form.checkValidity()) {
-//       form.reportValidity();
-//       return;
-//     }
-
-//     const name = form.querySelector("#name")?.value.trim() || "";
-//     const email = form.querySelector("#email")?.value.trim() || "";
-//     const subjectInput = form.querySelector("#subject")?.value.trim() || "New Message";
-//     const message = form.querySelector("#message")?.value.trim() || "";
-
-//     const data = new FormData();
-//     data.append("_subject", subjectInput);
-//     data.append("_captcha", "false");
-//     data.append("_replyto", email);
-//     data.append(
-//       "message",
-//       `Name: ${name}\nEmail: ${email}\nSubject: ${subjectInput}\n\nMessage:\n${message}`
-//     );
-
-//     if (submitButton) {
-//       submitButton.disabled = true;
-//       submitButton.textContent = "Sending...";
-//     }
-//     setStatus("Sending your message...");
-
-//     try {
-//       const response = await fetch(endpoint, {
-//         method: "POST",
-//         body: data,
-//         headers: {
-//           Accept: "application/json"
-//         }
-//       });
-
-//       const result = await response.json().catch(() => ({}));
-//       const success = response.ok && (result.success === "true" || result.success === true || Object.keys(result).length === 0);
-
-//       if (!success) {
-//         throw new Error("Form submit failed");
-//       }
-
-//       setStatus("Message sent successfully. I will contact you soon.", "is-success");
-//       form.reset();
-//     } catch (error) {
-//       setStatus("Message send failed. Please try again in a moment.", "is-error");
-//     } finally {
-//       if (submitButton) {
-//         submitButton.disabled = false;
-//         submitButton.textContent = "Send Message";
-//       }
-//     }
-//   });
-// })();
 
 (() => {
   const form = document.getElementById("contact-form");
