@@ -1087,6 +1087,21 @@ html[data-theme='light'] .assign-btn.code-btn {
         justify-content: center;
         margin: 12px auto 0;
     }
+
+    html[data-theme='light'] .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.98);
+        border-top-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+    }
+
+    html[data-theme='light'] .nav-link {
+        color: #334155;
+        border-bottom-color: rgba(15, 23, 42, 0.08);
+    }
+
+    html[data-theme='light'] .nav-link:hover {
+        color: var(--primary);
+    }
 }
 
 
@@ -3978,10 +3993,12 @@ html[data-theme='light'] .btn.download-cv:hover {
     }
 
     .navbar-collapse {
-        width: calc(100% + 24px) !important;
-        margin-left: -12px !important;
-        margin-right: -12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         padding: 10px 12px !important;
+        overflow-x: clip !important;
     }
 
     .hero-section {
