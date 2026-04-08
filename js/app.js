@@ -2,34 +2,35 @@ const loader = document.getElementById("loading");
 const progressBar = document.getElementById("progress-bar");
 
 if (loader && progressBar) {
-  let progress = 0;
+let progress = 0;
 
-  let interval = setInterval(() => {
-    progress += 1;
-    progressBar.style.width = progress + "%";
+let interval = setInterval(() => {
+progress += 1;
+progressBar.style.width = progress + "%";
 
-    if (progress >= 100) {
-      clearInterval(interval);
+if (progress >= 100) {
+clearInterval(interval);
 
+      // fade out loader
   
-      loader.style.opacity = "0";
+loader.style.opacity = "0";
 
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 800);
-    }
-  }, 20);
+setTimeout(() => {
+loader.style.display = "none";
+}, 800);
+}
+}, 20);
 }
 
 // Skills cards scroll animation
 const skillCards = document.querySelectorAll('.card');
 
 const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
 }, { threshold: 0.15 });
 
 skillCards.forEach(card => skillObserver.observe(card));
@@ -40,518 +41,594 @@ const themeToggleIcon = document.querySelector(".theme-toggle-icon");
 const themeToggleText = document.querySelector(".theme-toggle-text");
 
 function applyTheme(theme) {
-  document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
+document.documentElement.setAttribute("data-theme", theme);
+localStorage.setItem("theme", theme);
 
-  if (themeToggle) {
-    themeToggle.setAttribute(
-      "aria-label",
-      theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-    );
-  }
+if (themeToggle) {
+themeToggle.setAttribute(
+"aria-label",
+theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+);
+}
 
-  if (themeToggleIcon) {
-    themeToggleIcon.className = theme === "dark"
-      ? "fas fa-moon theme-toggle-icon"
-      : "fas fa-sun theme-toggle-icon";
-  }
+if (themeToggleIcon) {
+themeToggleIcon.className = theme === "dark"
+? "fas fa-moon theme-toggle-icon"
+: "fas fa-sun theme-toggle-icon";
+}
 
-  if (themeToggleText) {
-    themeToggleText.textContent = theme === "dark" ? "Dark" : "Light";
-  }
+if (themeToggleText) {
+themeToggleText.textContent = theme === "dark" ? "Dark" : "Light";
+}
 }
 
 const savedTheme = localStorage.getItem("theme");
 const initialTheme = savedTheme === "light" || savedTheme === "dark"
-  ? savedTheme
-  : (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+? savedTheme
+: (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
 
 applyTheme(initialTheme);
 
 if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    const nextTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    applyTheme(nextTheme);
-  });
+themeToggle.addEventListener("click", () => {
+const nextTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+applyTheme(nextTheme);
+});
 }
 
 // Mobile navbar toggle (works without Bootstrap JS)
 (() => {
-  const navToggle = document.querySelector(".navbar-toggler");
-  const navCollapse = document.getElementById("navbarNav");
-  if (!navToggle || !navCollapse) return;
+const navToggle = document.querySelector(".navbar-toggler");
+const navCollapse = document.getElementById("navbarNav");
+if (!navToggle || !navCollapse) return;
 
-  const closeMenu = () => {
-    navCollapse.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-  };
+const closeMenu = () => {
+navCollapse.classList.remove("open");
+navToggle.setAttribute("aria-expanded", "false");
+};
 
-  navToggle.addEventListener("click", () => {
-    const isOpen = navCollapse.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-  });
+navToggle.addEventListener("click", () => {
+const isOpen = navCollapse.classList.toggle("open");
+navToggle.setAttribute("aria-expanded", String(isOpen));
+});
 
-  navCollapse.querySelectorAll(".nav-link").forEach((link) => {
-    link.addEventListener("click", () => {
-      if (window.innerWidth <= 768) {
-        closeMenu();
-      }
-    });
-  });
+navCollapse.querySelectorAll(".nav-link").forEach((link) => {
+link.addEventListener("click", () => {
+if (window.innerWidth <= 768) {
+closeMenu();
+}
+});
+});
 
-  document.addEventListener("click", (event) => {
-    if (window.innerWidth > 768) return;
-    const target = event.target;
-    if (!(target instanceof Element)) return;
+document.addEventListener("click", (event) => {
+if (window.innerWidth > 768) return;
+const target = event.target;
+if (!(target instanceof Element)) return;
 
-    const clickInsideMenu = navCollapse.contains(target) || navToggle.contains(target);
-    if (!clickInsideMenu) {
-      closeMenu();
-    }
-  });
+const clickInsideMenu = navCollapse.contains(target) || navToggle.contains(target);
+if (!clickInsideMenu) {
+closeMenu();
+}
+});
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-      closeMenu();
-    }
-  });
+window.addEventListener("resize", () => {
+if (window.innerWidth > 768) {
+closeMenu();
+}
+});
 })();
 
 // Hero typewriter animation
 const typewriterElement = document.getElementById("typewriterText");
 
 if (typewriterElement) {
-  const roles = ["Software Engineer", "Web Designer"];
-  let roleIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
+const roles = ["Software Engineer", "Web Designer"];
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
 
-  const typeSpeed = 95;
-  const deleteSpeed = 55;
-  const holdDelay = 1200;
+const typeSpeed = 95;
+const deleteSpeed = 55;
+const holdDelay = 1200;
 
-  function tick() {
-    const currentRole = roles[roleIndex];
+function tick() {
+const currentRole = roles[roleIndex];
 
-    if (!deleting) {
-      typewriterElement.textContent = currentRole.slice(0, charIndex + 1);
-      charIndex += 1;
+if (!deleting) {
+typewriterElement.textContent = currentRole.slice(0, charIndex + 1);
+charIndex += 1;
 
-      if (charIndex === currentRole.length) {
-        deleting = true;
-        setTimeout(tick, holdDelay);
-        return;
-      }
+if (charIndex === currentRole.length) {
+deleting = true;
+setTimeout(tick, holdDelay);
+return;
+}
 
-      setTimeout(tick, typeSpeed);
-      return;
-    }
+setTimeout(tick, typeSpeed);
+return;
+}
 
-    typewriterElement.textContent = currentRole.slice(0, charIndex - 1);
-    charIndex -= 1;
+typewriterElement.textContent = currentRole.slice(0, charIndex - 1);
+charIndex -= 1;
 
-    if (charIndex === 0) {
-      deleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-      setTimeout(tick, 250);
-      return;
-    }
+if (charIndex === 0) {
+deleting = false;
+roleIndex = (roleIndex + 1) % roles.length;
+setTimeout(tick, 250);
+return;
+}
 
-    setTimeout(tick, deleteSpeed);
-  }
+setTimeout(tick, deleteSpeed);
+}
 
-  setTimeout(tick, 500);
+setTimeout(tick, 500);
 }
 // Plexus background animation
 (() => {
-  const canvas = document.getElementById("plexus-bg");
-  if (!canvas) return;
+const canvas = document.getElementById("plexus-bg");
+if (!canvas) return;
 
-  const ctx = canvas.getContext("2d", { alpha: true });
-  if (!ctx) return;
+const ctx = canvas.getContext("2d", { alpha: true });
+if (!ctx) return;
 
-  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  let width = 0;
-  let height = 0;
-  let rafId = 0;
-  let particles = [];
+let width = 0;
+let height = 0;
+let rafId = 0;
+let particles = [];
 
-  const state = {
-    pointerX: 0,
-    pointerY: 0,
-    currentX: 0,
-    currentY: 0,
-    initializedPointer: false,
-    colorBlend: 0,
-    colorIndex: 0,
-    nextColorIndex: 1,
-    lastTs: 0
-  };
+const state = {
+pointerX: 0,
+pointerY: 0,
+currentX: 0,
+currentY: 0,
+initializedPointer: false,
+colorBlend: 0,
+colorIndex: 0,
+nextColorIndex: 1,
+lastTs: 0
+};
 
-  const CONFIG = {
-    virtualW: 1920,
-    virtualH: 1080,
-    connectDistance: 180,
-    dotMin: 1.5,
-    dotMax: 3.2,
-    speedMin: 0.18,
-    speedMax: 0.44,
-    colorShiftSpeed: 0.0017,
-    pointerLerp: 0.05,
-    pointerInfluence: 0.045
-  };
+const CONFIG = {
+virtualW: 1920,
+virtualH: 1080,
+connectDistance: 180,
+dotMin: 1.5,
+dotMax: 3.2,
+speedMin: 0.18,
+speedMax: 0.44,
+colorShiftSpeed: 0.0017,
+pointerLerp: 0.05,
+pointerInfluence: 0.045
+};
 
-  function hexToRgb(hex) {
-    const clean = hex.replace("#", "").trim();
-    const full = clean.length === 3
-      ? clean.split("").map((c) => c + c).join("")
-      : clean;
+function hexToRgb(hex) {
+const clean = hex.replace("#", "").trim();
+const full = clean.length === 3
+? clean.split("").map((c) => c + c).join("")
+: clean;
 
-    const r = parseInt(full.slice(0, 2), 16);
-    const g = parseInt(full.slice(2, 4), 16);
-    const b = parseInt(full.slice(4, 6), 16);
-    return { r, g, b };
-  }
+const r = parseInt(full.slice(0, 2), 16);
+const g = parseInt(full.slice(2, 4), 16);
+const b = parseInt(full.slice(4, 6), 16);
+return { r, g, b };
+}
 
-  function rgbString({ r, g, b }) {
-    return `rgb(${r}, ${g}, ${b})`;
-  }
+function rgbString({ r, g, b }) {
+return `rgb(${r}, ${g}, ${b})`;
+}
 
-  function rgbaString({ r, g, b }, a) {
-    return `rgba(${r}, ${g}, ${b}, ${a})`;
-  }
+function rgbaString({ r, g, b }, a) {
+return `rgba(${r}, ${g}, ${b}, ${a})`;
+}
 
-  function mixRgb(a, b, t) {
-    return {
-      r: Math.round(a.r + (b.r - a.r) * t),
-      g: Math.round(a.g + (b.g - a.g) * t),
-      b: Math.round(a.b + (b.b - a.b) * t)
-    };
-  }
+function mixRgb(a, b, t) {
+return {
+r: Math.round(a.r + (b.r - a.r) * t),
+g: Math.round(a.g + (b.g - a.g) * t),
+b: Math.round(a.b + (b.b - a.b) * t)
+};
+}
 
-  function getThemePalettes() {
-    const styles = getComputedStyle(document.documentElement);
-    const primary = styles.getPropertyValue("--primary").trim() || "#6e45e2";
-    const secondary = styles.getPropertyValue("--secondary").trim() || "#88d3ce";
+function getThemePalettes() {
+const styles = getComputedStyle(document.documentElement);
+const primary = styles.getPropertyValue("--primary").trim() || "#6e45e2";
+const secondary = styles.getPropertyValue("--secondary").trim() || "#88d3ce";
 
-    const p = hexToRgb(primary);
-    const s = hexToRgb(secondary);
+const p = hexToRgb(primary);
+const s = hexToRgb(secondary);
 
-    return [
-      mixRgb(p, s, 0.15),
-      mixRgb(p, s, 0.45),
-      mixRgb(p, s, 0.75),
-      mixRgb(p, { r: 214, g: 245, b: 255 }, 0.5),
-      mixRgb(s, { r: 176, g: 255, b: 242 }, 0.55)
-    ];
-  }
-  let palette = getThemePalettes();
+return [
+mixRgb(p, s, 0.15),
+mixRgb(p, s, 0.45),
+mixRgb(p, s, 0.75),
+mixRgb(p, { r: 214, g: 245, b: 255 }, 0.5),
+mixRgb(s, { r: 176, g: 255, b: 242 }, 0.55)
+];
+}
 
-  class Particle {
-    constructor() {
-      this.reset(true);
-    }
+let palette = getThemePalettes();
 
-    reset(initial = false) {
-      const xMax = CONFIG.virtualW;
-      const yMax = CONFIG.virtualH;
+class Particle {
+constructor() {
+this.reset(true);
+}
 
-      this.x = initial ? Math.random() * xMax : (Math.random() < 0.5 ? -20 : xMax + 20);
-      this.y = initial ? Math.random() * yMax : Math.random() * yMax;
+reset(initial = false) {
+const xMax = CONFIG.virtualW;
+const yMax = CONFIG.virtualH;
 
-      const speed = CONFIG.speedMin + Math.random() * (CONFIG.speedMax - CONFIG.speedMin);
-      const angle = Math.random() * Math.PI * 2;
-      this.vx = Math.cos(angle) * speed;
-      this.vy = Math.sin(angle) * speed;
-      this.r = CONFIG.dotMin + Math.random() * (CONFIG.dotMax - CONFIG.dotMin);
-      this.bias = Math.random() * Math.PI * 2;
-    }
+this.x = initial ? Math.random() * xMax : (Math.random() < 0.5 ? -20 : xMax + 20);
+this.y = initial ? Math.random() * yMax : Math.random() * yMax;
 
-    update(pointerNx, pointerNy) {
-      // Subtle and elegant pointer influence
-      this.x += this.vx + pointerNx * CONFIG.pointerInfluence;
-      this.y += this.vy + pointerNy * CONFIG.pointerInfluence;
+const speed = CONFIG.speedMin + Math.random() * (CONFIG.speedMax - CONFIG.speedMin);
+const angle = Math.random() * Math.PI * 2;
+this.vx = Math.cos(angle) * speed;
+this.vy = Math.sin(angle) * speed;
+this.r = CONFIG.dotMin + Math.random() * (CONFIG.dotMax - CONFIG.dotMin);
+this.bias = Math.random() * Math.PI * 2;
+}
 
-      if (this.x < -30) this.x = CONFIG.virtualW + 30;
-      if (this.x > CONFIG.virtualW + 30) this.x = -30;
-      if (this.y < -30) this.y = CONFIG.virtualH + 30;
-      if (this.y > CONFIG.virtualH + 30) this.y = -30;
-    }
+update(pointerNx, pointerNy) {
+// Subtle and elegant pointer influence
+this.x += this.vx + pointerNx * CONFIG.pointerInfluence;
+this.y += this.vy + pointerNy * CONFIG.pointerInfluence;
 
-    sx() {
-      return (this.x / CONFIG.virtualW) * width;
-    }
+if (this.x < -30) this.x = CONFIG.virtualW + 30;
+if (this.x > CONFIG.virtualW + 30) this.x = -30;
+if (this.y < -30) this.y = CONFIG.virtualH + 30;
+if (this.y > CONFIG.virtualH + 30) this.y = -30;
+}
 
-    sy() {
-      return (this.y / CONFIG.virtualH) * height;
-    }
-  }
+sx() {
+return (this.x / CONFIG.virtualW) * width;
+}
 
-  function getParticleCount() {
-    if (reduceMotionQuery.matches) return 36;
-    if (window.innerWidth <= 480) return 46;
-    if (window.innerWidth <= 768) return 58;
-    return 84;
-  }
+sy() {
+return (this.y / CONFIG.virtualH) * height;
+}
+}
 
-  function resetParticles() {
-    const count = getParticleCount();
-    particles = Array.from({ length: count }, () => new Particle());
-  }
+function getParticleCount() {
+if (reduceMotionQuery.matches) return 36;
+if (window.innerWidth <= 480) return 46;
+if (window.innerWidth <= 768) return 58;
+return 84;
+}
 
-  function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = window.innerWidth;
-    height = window.innerHeight;
+function resetParticles() {
+const count = getParticleCount();
+particles = Array.from({ length: count }, () => new Particle());
+}
 
-    canvas.width = Math.floor(width * dpr);
-    canvas.height = Math.floor(height * dpr);
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+function resize() {
+const dpr = Math.min(window.devicePixelRatio || 1, 2);
+width = window.innerWidth;
+height = window.innerHeight;
 
-    resetParticles();
+canvas.width = Math.floor(width * dpr);
+canvas.height = Math.floor(height * dpr);
+canvas.style.width = `${width}px`;
+canvas.style.height = `${height}px`;
+ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    if (!state.initializedPointer) {
-      state.pointerX = width * 0.5;
-      state.pointerY = height * 0.5;
-      state.currentX = state.pointerX;
-      state.currentY = state.pointerY;
-      state.initializedPointer = true;
-    }
-  }
+resetParticles();
 
-  function updatePointer(clientX, clientY) {
-    state.pointerX = clientX;
-    state.pointerY = clientY;
-  }
+if (!state.initializedPointer) {
+state.pointerX = width * 0.5;
+state.pointerY = height * 0.5;
+state.currentX = state.pointerX;
+state.currentY = state.pointerY;
+state.initializedPointer = true;
+}
+}
 
-  function tick(ts) {
-    if (!state.lastTs) state.lastTs = ts;
-    const dt = ts - state.lastTs;
-    state.lastTs = ts;
+function updatePointer(clientX, clientY) {
+state.pointerX = clientX;
+state.pointerY = clientY;
+}
 
-    // Keep timing stable if tab was inactive
-    const normalizedDt = Math.min(Math.max(dt, 8), 34);
+function tick(ts) {
+if (!state.lastTs) state.lastTs = ts;
+const dt = ts - state.lastTs;
+state.lastTs = ts;
 
-    state.currentX += (state.pointerX - state.currentX) * CONFIG.pointerLerp;
-    state.currentY += (state.pointerY - state.currentY) * CONFIG.pointerLerp;
+// Keep timing stable if tab was inactive
+const normalizedDt = Math.min(Math.max(dt, 8), 34);
 
-    const nx = ((state.currentX / Math.max(width, 1)) * 2 - 1) * 0.9;
-    const ny = ((state.currentY / Math.max(height, 1)) * 2 - 1) * 0.9;
+state.currentX += (state.pointerX - state.currentX) * CONFIG.pointerLerp;
+state.currentY += (state.pointerY - state.currentY) * CONFIG.pointerLerp;
 
-    state.colorBlend += CONFIG.colorShiftSpeed * normalizedDt;
-    if (state.colorBlend >= 1) {
-      state.colorBlend = 0;
-      state.colorIndex = state.nextColorIndex;
-      state.nextColorIndex = (state.nextColorIndex + 1) % palette.length;
-    }
+const nx = ((state.currentX / Math.max(width, 1)) * 2 - 1) * 0.9;
+const ny = ((state.currentY / Math.max(height, 1)) * 2 - 1) * 0.9;
 
-    const currentColor = mixRgb(
-      palette[state.colorIndex],
-      palette[state.nextColorIndex],
-      state.colorBlend
-    );
+state.colorBlend += CONFIG.colorShiftSpeed * normalizedDt;
+if (state.colorBlend >= 1) {
+state.colorBlend = 0;
+state.colorIndex = state.nextColorIndex;
+state.nextColorIndex = (state.nextColorIndex + 1) % palette.length;
+}
 
-    ctx.clearRect(0, 0, width, height);
+const currentColor = mixRgb(
+palette[state.colorIndex],
+palette[state.nextColorIndex],
+state.colorBlend
+);
 
-    const maxDistance = (CONFIG.connectDistance / CONFIG.virtualW) * width;
+ctx.clearRect(0, 0, width, height);
 
-    for (let i = 0; i < particles.length; i += 1) {
-      particles[i].update(nx, ny);
-    }
+const maxDistance = (CONFIG.connectDistance / CONFIG.virtualW) * width;
 
-    // Lines
-    for (let i = 0; i < particles.length; i += 1) {
-      const p1x = particles[i].sx();
-      const p1y = particles[i].sy();
+for (let i = 0; i < particles.length; i += 1) {
+particles[i].update(nx, ny);
+}
 
-      for (let j = i + 1; j < particles.length; j += 1) {
-        const p2x = particles[j].sx();
-        const p2y = particles[j].sy();
-        const dx = p1x - p2x;
-        const dy = p1y - p2y;
-        const dist = Math.hypot(dx, dy);
+// Lines
+for (let i = 0; i < particles.length; i += 1) {
+const p1x = particles[i].sx();
+const p1y = particles[i].sy();
 
-        if (dist < maxDistance) {
-          const alpha = (1 - dist / maxDistance) * 0.34;
-          ctx.strokeStyle = rgbaString(currentColor, alpha);
-          ctx.lineWidth = 0.8;
-          ctx.beginPath();
-          ctx.moveTo(p1x, p1y);
-          ctx.lineTo(p2x, p2y);
-          ctx.stroke();
-        }
-      }
-    }
+for (let j = i + 1; j < particles.length; j += 1) {
+const p2x = particles[j].sx();
+const p2y = particles[j].sy();
+const dx = p1x - p2x;
+const dy = p1y - p2y;
+const dist = Math.hypot(dx, dy);
 
-    // Dots
-    for (let i = 0; i < particles.length; i += 1) {
-      const p = particles[i];
-      const x = p.sx();
-      const y = p.sy();
+if (dist < maxDistance) {
+const alpha = (1 - dist / maxDistance) * 0.34;
+ctx.strokeStyle = rgbaString(currentColor, alpha);
+ctx.lineWidth = 0.8;
+ctx.beginPath();
+ctx.moveTo(p1x, p1y);
+ctx.lineTo(p2x, p2y);
+ctx.stroke();
+}
+}
+}
 
-      ctx.beginPath();
-      ctx.arc(x, y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = rgbString(currentColor);
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = rgbString(currentColor);
-      ctx.fill();
-    }
+// Dots
+for (let i = 0; i < particles.length; i += 1) {
+const p = particles[i];
+const x = p.sx();
+const y = p.sy();
 
-    // Reset shadow for other canvas operations
-    ctx.shadowBlur = 0;
-    rafId = window.requestAnimationFrame(tick);
-  }
+ctx.beginPath();
+ctx.arc(x, y, p.r, 0, Math.PI * 2);
+ctx.fillStyle = rgbString(currentColor);
+ctx.shadowBlur = 10;
+ctx.shadowColor = rgbString(currentColor);
+ctx.fill();
+}
 
-  function refreshPaletteFromTheme() {
-    palette = getThemePalettes();
-  }
+// Reset shadow for other canvas operations
+ctx.shadowBlur = 0;
+rafId = window.requestAnimationFrame(tick);
+}
 
-  function isLightMode() {
-    return document.documentElement.getAttribute("data-theme") === "light";
-  }
+function refreshPaletteFromTheme() {
+palette = getThemePalettes();
+}
 
-  function stopLoop() {
-    if (rafId) {
-      cancelAnimationFrame(rafId);
-      rafId = 0;
-    }
+function isLightMode() {
+return document.documentElement.getAttribute("data-theme") === "light";
+}
 
-    if (width > 0 && height > 0) {
-      ctx.clearRect(0, 0, width, height);
-    }
-  }
+function stopLoop() {
+if (rafId) {
+cancelAnimationFrame(rafId);
+rafId = 0;
+}
 
-  function startLoop() {
-    if (!rafId) {
-      state.lastTs = 0;
-      rafId = window.requestAnimationFrame(tick);
-    }
-  }
+if (width > 0 && height > 0) {
+ctx.clearRect(0, 0, width, height);
+}
+}
 
-  function applyPlexusMode() {
-    if (isLightMode()) {
-      canvas.style.display = "none";
-      stopLoop();
-      return;
-    }
+function startLoop() {
+if (!rafId) {
+state.lastTs = 0;
+rafId = window.requestAnimationFrame(tick);
+}
+}
 
-    canvas.style.display = "block";
-    refreshPaletteFromTheme();
-    startLoop();
-  }
+function applyPlexusMode() {
+if (isLightMode()) {
+canvas.style.display = "none";
+stopLoop();
+return;
+}
 
-  function init() {
-    resize();
-    refreshPaletteFromTheme();
+canvas.style.display = "block";
+refreshPaletteFromTheme();
+startLoop();
+}
 
-    window.addEventListener("resize", resize, { passive: true });
+function init() {
+resize();
+refreshPaletteFromTheme();
 
-    window.addEventListener("mousemove", (e) => {
-      updatePointer(e.clientX, e.clientY);
-    }, { passive: true });
+window.addEventListener("resize", resize, { passive: true });
 
-    window.addEventListener("touchmove", (e) => {
-      if (!e.touches || e.touches.length === 0) return;
-      updatePointer(e.touches[0].clientX, e.touches[0].clientY);
-    }, { passive: true });
+window.addEventListener("mousemove", (e) => {
+updatePointer(e.clientX, e.clientY);
+}, { passive: true });
 
-    // Refresh palette and toggle animation when theme changes
-    const observer = new MutationObserver(() => {
-      applyPlexusMode();
-    });
+window.addEventListener("touchmove", (e) => {
+if (!e.touches || e.touches.length === 0) return;
+updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+}, { passive: true });
 
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-theme"]
-    });
+// Refresh palette and toggle animation when theme changes
+const observer = new MutationObserver(() => {
+applyPlexusMode();
+});
 
-    applyPlexusMode();
-  }
+observer.observe(document.documentElement, {
+attributes: true,
+attributeFilter: ["data-theme"]
+});
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init, { once: true });
-  } else {
-    init();
-  }
+applyPlexusMode();
+}
+
+if (document.readyState === "loading") {
+document.addEventListener("DOMContentLoaded", init, { once: true });
+} else {
+init();
+}
 })();
 
+// Contact form submit via FormSubmit AJAX API
+// (() => {
+//   const form = document.getElementById("contact-form");
+//   if (!form) return;
+
+//   const submitButton = form.querySelector(".contact-submit");
+//   const statusText = document.getElementById("contact-status");
+//   const endpoint = "https://formsubmit.co/ajax/oshannavishka1234@gmail.com";
+
+//   function setStatus(message, type = "") {
+//     if (!statusText) return;
+//     statusText.textContent = message;
+//     statusText.classList.remove("is-success", "is-error");
+//     if (type) {
+//       statusText.classList.add(type);
+//     }
+//   }
+
+//   form.addEventListener("submit", async (event) => {
+//     event.preventDefault();
+
+//     if (!form.checkValidity()) {
+//       form.reportValidity();
+//       return;
+//     }
+
+//     const name = form.querySelector("#name")?.value.trim() || "";
+//     const email = form.querySelector("#email")?.value.trim() || "";
+//     const subjectInput = form.querySelector("#subject")?.value.trim() || "New Message";
+//     const message = form.querySelector("#message")?.value.trim() || "";
+
+//     const data = new FormData();
+//     data.append("_subject", subjectInput);
+//     data.append("_captcha", "false");
+//     data.append("_replyto", email);
+//     data.append(
+//       "message",
+//       `Name: ${name}\nEmail: ${email}\nSubject: ${subjectInput}\n\nMessage:\n${message}`
+//     );
+
+//     if (submitButton) {
+//       submitButton.disabled = true;
+//       submitButton.textContent = "Sending...";
+//     }
+//     setStatus("Sending your message...");
+
+//     try {
+//       const response = await fetch(endpoint, {
+//         method: "POST",
+//         body: data,
+//         headers: {
+//           Accept: "application/json"
+//         }
+//       });
+
+//       const result = await response.json().catch(() => ({}));
+//       const success = response.ok && (result.success === "true" || result.success === true || Object.keys(result).length === 0);
+
+//       if (!success) {
+//         throw new Error("Form submit failed");
+//       }
+
+//       setStatus("Message sent successfully. I will contact you soon.", "is-success");
+//       form.reset();
+//     } catch (error) {
+//       setStatus("Message send failed. Please try again in a moment.", "is-error");
+//     } finally {
+//       if (submitButton) {
+//         submitButton.disabled = false;
+//         submitButton.textContent = "Send Message";
+//       }
+//     }
+//   });
+// })();
+
 (() => {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
+const form = document.getElementById("contact-form");
+if (!form) return;
 
-  const submitButton = form.querySelector(".contact-submit");
-  const statusText = document.getElementById("contact-status");
-  const endpoint = "https://formsubmit.co/ajax/oshannavishka1234@gmail.com";
+const submitButton = form.querySelector(".contact-submit");
+const statusText = document.getElementById("contact-status");
+const endpoint = "https://formsubmit.co/ajax/oshannavishka1234@gmail.com";
 
-  function setStatus(message, type = "") {
-    if (!statusText) return;
-    statusText.textContent = message;
-    statusText.classList.remove("is-success", "is-error");
-    if (type) {
-      statusText.classList.add(type);
-    }
-  }
+function setStatus(message, type = "") {
+if (!statusText) return;
+statusText.textContent = message;
+statusText.classList.remove("is-success", "is-error");
+if (type) {
+statusText.classList.add(type);
+}
+}
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+form.addEventListener("submit", async (event) => {
+event.preventDefault();
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
+if (!form.checkValidity()) {
+form.reportValidity();
+return;
+}
 
-    const name = form.querySelector("#name")?.value.trim() || "";
-    const email = form.querySelector("#email")?.value.trim() || "";
-    const subjectInput = form.querySelector("#subject")?.value.trim() || "New Message";
-    const message = form.querySelector("#message")?.value.trim() || "";
+const name = form.querySelector("#name")?.value.trim() || "";
+const email = form.querySelector("#email")?.value.trim() || "";
+const subjectInput = form.querySelector("#subject")?.value.trim() || "New Message";
+const message = form.querySelector("#message")?.value.trim() || "";
 
-    const data = new FormData();
-    data.append("name", name);
-    data.append("email", email);
-    data.append("_subject", subjectInput);
-    data.append("_captcha", "false");
-    data.append("_replyto", email);
-    data.append("_template", "table");
-    data.append("message",
-      `Name: ${name}\nEmail: ${email}\nSubject: ${subjectInput}\n\nMessage:\n${message}`
-    );
+const data = new FormData();
+data.append("name", name);
+data.append("email", email);
+data.append("_subject", subjectInput);
+data.append("_captcha", "false");
+data.append("_replyto", email);
+data.append("_template", "table");
+data.append("message",
+`Name: ${name}\nEmail: ${email}\nSubject: ${subjectInput}\n\nMessage:\n${message}`
+);
 
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
-    }
-    setStatus("Sending your message...");
+if (submitButton) {
+submitButton.disabled = true;
+submitButton.textContent = "Sending...";
+}
+setStatus("Sending your message...");
 
-    try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        body: data,
-        headers: {
-          Accept: "application/json"
-        }
-      });
+try {
+const response = await fetch(endpoint, {
+method: "POST",
+body: data,
+headers: {
+Accept: "application/json"
+}
+});
 
-      const result = await response.json().catch(() => ({}));
-      const success = response.ok && (result.success === "true" || result.success === true || Object.keys(result).length === 0);
+const result = await response.json().catch(() => ({}));
+const success = response.ok && (result.success === "true" || result.success === true || Object.keys(result).length === 0);
 
-      if (!success) {
-        const apiMessage = typeof result?.message === "string" ? result.message : "Form submit failed";
-        throw new Error(apiMessage);
-      }
+if (!success) {
+const apiMessage = typeof result?.message === "string" ? result.message : "Form submit failed";
+throw new Error(apiMessage);
+}
 
-      setStatus("Message sent successfully. I will contact you soon.", "is-success");
-      form.reset();
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "Message send failed. Please try again in a moment.";
-      setStatus(`${message}. If this is your first submit, verify the FormSubmit activation email.`, "is-error");
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = "Send Message";
-      }
-    }
-  });
+setStatus("Message sent successfully. I will contact you soon.", "is-success");
+form.reset();
+} catch (error) {
+const message = error instanceof Error ? error.message : "Message send failed. Please try again in a moment.";
+setStatus(`${message}. If this is your first submit, verify the FormSubmit activation email.`, "is-error");
+} finally {
+if (submitButton) {
+submitButton.disabled = false;
+submitButton.textContent = "Send Message";
+}
+}
+});
 })();

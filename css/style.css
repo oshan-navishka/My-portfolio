@@ -1020,69 +1020,50 @@ margin-top: 40px;
 }
 
 @media (max-width: 768px) {
-.navbar-toggler { 
-display: flex;
-padding: 8px 6px;
-}
+    .navbar-toggler { display: flex; }
 
-.navbar-collapse {
-display: none;
-flex-direction: column;
-align-items: stretch;
-gap: 0;
-width: 100%;
-max-width: 100%;
-margin-left: 0;
-margin-right: 0;
-padding: 12px var(--container-pad);
-border-top: 1px solid var(--card-border);
-margin-top: 12px;
-max-height: none;
-overflow-y: auto;
-overflow-x: clip;
-background-color: rgba(26, 26, 46, 0.98);
-backdrop-filter: blur(12px);
-position: absolute;
-top: 100%;
-left: 0;
-right: 0;
-z-index: 999;
-}
+    .navbar-collapse {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+        padding: 16px 0 8px;
+        border-top: 1px solid var(--card-border);
+        margin-top: 12px;
+    }
 
-.navbar-collapse.open { 
-display: flex;
-}
+    .navbar-collapse.open { display: flex; }
 
-.navbar .container { flex-wrap: wrap; }
+    .container { flex-wrap: wrap; }
 
-.navbar-nav {
-flex-direction: column;
-align-items: stretch;
-width: 100%;
-gap: 0;
-}
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 0;
+    }
 
-.nav-link {
-width: 100%;
-padding: 12px 8px;
-border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-font-size: 0.95rem;
-}
+    .nav-link {
+        width: 100%;
+        padding: 10px 4px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-.ms-auto { margin-left: 0; }
+    .ms-auto { margin-left: 0; }
 
-.btn-primary-custom {
-margin-top: 12px;
-width: 100%;
-text-align: center;
-justify-content: center;
-}
+    .btn-primary-custom {
+        margin-top: 12px;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
 
-.theme-toggle {
-width: auto;
-justify-content: center;
-margin: 12px auto 0;
-}
+    .theme-toggle {
+        width: 100%;
+        justify-content: center;
+        margin: 12px 0 0;
+    }
 }
 
 
@@ -1170,10 +1151,6 @@ font-size: inherit;
 min-width: 0;
 height: auto;
 display: inline-block;
-}
-
-.neon-terminal {
-display: none;
 }
 }
 
