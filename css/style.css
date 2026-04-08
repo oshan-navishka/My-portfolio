@@ -664,36 +664,39 @@ transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-contact-item i {
-color: #8b5cf6;
-width: 16px;
-text-align: center;
+    color: #8b5cf6;
+    width: 16px;
+    text-align: center;
 }
 
 .footer-contact-item:hover {
-color: #dbe5ff;
-transform: translateX(2px);
+    color: #dbe5ff;
+    transform: translateX(2px);
 }
 
 .footer-links {
-display: grid;
-gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+    row-gap: 10px;
 }
 
 .footer-link {
-text-decoration: none;
-color: var(--text-muted);
-font-size: 1.02rem;
-transition: color 0.22s ease;
+    display: block;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    transition: color 0.22s ease;
 }
 
 .footer-link:hover {
-color: #dbe5ff;
+    color: #da3c0c;
 }
 
 .footer-social {
-display: flex;
-gap: 10px;
-flex-wrap: wrap;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .footer-social a {
