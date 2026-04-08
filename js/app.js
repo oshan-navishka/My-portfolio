@@ -82,12 +82,19 @@ applyTheme(nextTheme);
       if (!navLinks.length) return;
 
       const linkMap = new Map();
+      const sections = [];
+
       navLinks.forEach((link) => {
             const targetId = link.getAttribute('href')?.slice(1);
-            if (targetId) {
+            const section = targetId ? document.getElementById(targetId) : null;
+
+            if (targetId && section) {
                   linkMap.set(targetId, link);
+                  sections.push(section);
             }
       });
+
+      if (!sections.length) return;
 
       const setActiveLink = (id) => {
             navLinks.forEach((link) => link.classList.remove('active'));
@@ -97,29 +104,39 @@ applyTheme(nextTheme);
             }
       };
 
-      const sections = Array.from(linkMap.keys())
-            .map((id) => document.getElementById(id))
-            .filter(Boolean);
+      const getCurrentSectionId = () => {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const offset = Math.max(140, Math.round(window.innerHeight * 0.25));
+            let currentId = sections[0].id;
 
-      if (!sections.length) return;
+            sections.forEach((section) => {
+                  const sectionTop = section.offsetTop;
+                  if (scrollY + offset >= sectionTop) {
+                        currentId = section.id;
+                  }
+            });
 
-      const observer = new IntersectionObserver((entries) => {
-            const visible = entries
-                  .filter((entry) => entry.isIntersecting)
-                  .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            return currentId;
+      };
 
-            if (visible?.target?.id) {
-                  setActiveLink(visible.target.id);
+      let ticking = false;
+      const updateActiveLink = () => {
+            const currentId = getCurrentSectionId();
+            setActiveLink(currentId);
+            ticking = false;
+      };
+
+      const requestUpdate = () => {
+            if (!ticking) {
+                  window.requestAnimationFrame(updateActiveLink);
+                  ticking = true;
             }
-      }, {
-            root: null,
-            threshold: [0.25, 0.4, 0.55, 0.7],
-            rootMargin: '-20% 0px -55% 0px'
-      });
+      };
 
-      sections.forEach((section) => observer.observe(section));
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate);
 
-      const initialSection = window.location.hash.replace('#', '') || 'home';
+      const initialSection = window.location.hash.replace('#', '') || getCurrentSectionId();
       setActiveLink(initialSection);
 })();
 
