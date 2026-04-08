@@ -690,7 +690,7 @@ transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-link:hover {
-    color: #dbe5ff;
+    color: whitesmoke;
     transform: translateX(3px);
 }
 
