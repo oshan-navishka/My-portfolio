@@ -1171,6 +1171,10 @@ min-width: 0;
 height: auto;
 display: inline-block;
 }
+
+.neon-terminal {
+display: none;
+}
 }
 
 /*about section*/
