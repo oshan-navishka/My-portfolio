@@ -50,6 +50,7 @@ html {
 scroll-behavior: smooth;
 width: 100%;
 max-width: 100%;
+overflow-x: hidden;
 overflow-x: clip;
 }
 
@@ -69,7 +70,16 @@ width: 100%;
 max-width: 100%;
 margin: 0;
 padding: 0;
+overflow-x: hidden;
 overflow-x: clip;
+}
+
+img,
+video,
+iframe,
+canvas,
+svg {
+max-width: 100%;
 }
 
 /* ── Plexus Background ── */
@@ -3958,5 +3968,33 @@ font-size: 0.9rem;
 width: 32px;
 height: 32px;
 font-size: 0.8rem;
+}
+}
+
+/* Mobile overflow guard */
+@media (max-width: 768px) {
+.navbar,
+.navbar .container,
+.navbar-collapse,
+.hero-section,
+.hero-section .container,
+.row,
+.projects-section,
+.projects-section .container,
+.project-box,
+.project-content,
+.assignments-section,
+.assignments-section .container,
+.assign-wrapper,
+.gallery-section,
+.gallery-section .container,
+.contact-section,
+.contact-section .container {
+max-width: 100%;
+overflow-x: hidden;
+}
+
+.project-box:hover .project-content {
+left: 0;
 }
 }
