@@ -3858,6 +3858,10 @@ html[data-theme='light'] .btn.download-cv:hover {
         font-size: 0.95rem;
     }
 
+    .neon-terminal {
+        display: none;
+    }
+
     .btn-primary-custom,
     .btn.download-cv,
     .theme-toggle {
