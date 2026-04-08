@@ -1044,6 +1044,10 @@ margin-top: 40px;
         gap: 0;
     }
 
+    .neon-terminal{
+        display: none;
+    }
+    
     .nav-link {
         width: 100%;
         padding: 10px 4px;
@@ -1064,6 +1068,8 @@ margin-top: 40px;
         justify-content: center;
         margin: 12px 0 0;
     }
+
+
 }
 
 
