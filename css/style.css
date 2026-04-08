@@ -1693,9 +1693,12 @@ scroll{
 /*tools section*/
 
 .tools-section {
+    width: 100%;
+    max-width: 100%;
     padding: var(--section-space) 0;
     position: relative;
     overflow: hidden;
+    overflow-x: clip;
 }
 
 .tools-section::before {
@@ -1711,11 +1714,13 @@ scroll{
 }
 
 .tools-container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--container-pad);
     position: relative;
     z-index: 1;
+    overflow-x: clip;
 }
 
 .tools-subtitle {
@@ -1851,12 +1856,18 @@ scroll{
 /*project section*/
 
 .projects-section {
+    width: 100%;
+    max-width: 100%;
     padding: var(--section-space) 0 clamp(60px, 8vw, 100px);
     position: relative;
+    overflow-x: clip;
 }
 
 .projects-section .container {
+    width: 100%;
+    max-width: 100%;
     display: block;
+    overflow-x: clip;
 }
 
 .projects-container {
@@ -2295,12 +2306,18 @@ scroll{
 
 /*assignment section*/
 .assignments-section {
+    width: 100%;
+    max-width: 100%;
     padding: var(--section-space) 0 clamp(60px, 8vw, 100px);
     position: relative;
+    overflow-x: clip;
 }
 
 .assignments-section .container {
+    width: 100%;
+    max-width: 100%;
     display: block;
+    overflow-x: clip;
 }
 
 .assign-wrapper {
@@ -2902,15 +2919,21 @@ html[data-theme='light'] .btn.download-cv:hover {
 /*gallery section*/
 .gallery-section {
     --gallery-zoom: 1;
+    width: 100%;
+    max-width: 100%;
     padding-block: clamp(40px, 6vw, 72px);
     padding-bottom: clamp(60px, 8vw, 100px);
     position: relative;
     overflow: hidden;
+    overflow-x: clip;
 }
 
 .gallery-section .container {
+    width: 100%;
+    max-width: 100%;
     display: block;
     padding: 0 var(--container-pad);
+    overflow-x: clip;
 }
 
 .gallery-section .section-title {
@@ -3159,12 +3182,18 @@ html[data-theme='light'] .btn.download-cv:hover {
 
 /*contact section*/
 .contact-section {
+    width: 100%;
+    max-width: 100%;
     padding: clamp(18px, 5vw, 10px) 0 clamp(60px, 8vw, 100px);
     position: relative;
+    overflow-x: clip;
 }
 
 .contact-section .container {
+    width: 100%;
+    max-width: 100%;
     display: block;
+    overflow-x: clip;
 }
 
 .contact-subtitle {
