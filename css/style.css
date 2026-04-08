@@ -48,6 +48,9 @@ html[data-theme='light'] {
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
 }
 
 * {
@@ -62,7 +65,11 @@ body {
     color: var(--page-text);
     font-size: var(--text-base);
     line-height: 1.6;
-    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    margin: 0;
+    padding: 0;
 }
 
 /* ── Plexus Background ── */
@@ -109,12 +116,14 @@ html[data-theme='light'] body::before {
     top: 0;
     left: 0;
     width: 100%;
+    max-width: 100%;
     z-index: 1000;
     padding: 18px 0;
     background-color: var(--nav-bg);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-soft);
     transition: padding 0.4s ease, box-shadow 0.4s ease;
+    overflow-x: clip;
 }
 
 .navbar.scrolled {
@@ -123,12 +132,14 @@ html[data-theme='light'] body::before {
 }
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--container-pad);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    overflow-x: clip;
 }
 
 .navbar-brand {
@@ -362,17 +373,23 @@ html[data-theme='light'] body::before {
 
 /* ── Hero Section ── */
 .hero-section {
+    width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding: clamp(86px, 10vw, 110px) 0 20px;
     position: relative;
     overflow: hidden;
+    overflow-x: clip;
 }
 
 .hero-section .container {
+    width: 100%;
+    max-width: 100%;
     display: flex;
     align-items: center;
+    overflow-x: clip;
 }
 
 .row {
@@ -1013,14 +1030,16 @@ html[data-theme='light'] .assign-btn.code-btn {
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        width: calc(100% + var(--container-pad) * 2);
-        margin-left: calc(-1 * var(--container-pad));
-        margin-right: calc(-1 * var(--container-pad));
+        width: 100%;
+        max-width: 100%;
         padding: 12px var(--container-pad);
         border-top: 1px solid var(--card-border);
         margin-top: 12px;
+        margin-left: 0;
+        margin-right: 0;
         max-height: none;
         overflow-y: auto;
+        overflow-x: clip;
         background-color: rgba(26, 26, 46, 0.98);
         backdrop-filter: blur(12px);
         position: absolute;
@@ -1034,7 +1053,11 @@ html[data-theme='light'] .assign-btn.code-btn {
         display: flex;
     }
 
-    .container { flex-wrap: wrap; }
+    .container { 
+        flex-wrap: wrap;
+        max-width: 100%;
+        overflow-x: clip;
+    }
 
     .navbar-nav {
         flex-direction: column;
@@ -1156,10 +1179,13 @@ html[data-theme='light'] .assign-btn.code-btn {
 
 /*about section*/
 .about-section {
+    width: 100%;
+    max-width: 100%;
     padding: var(--section-space) 0;
     background-color: rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
+    overflow-x: clip;
 }
 
 .about-section::before {
@@ -1189,9 +1215,12 @@ html[data-theme='light'] .assign-btn.code-btn {
 }
 
 .about-section .container {
+    width: 100%;
+    max-width: 100%;
     display: block;   
     position: relative;
     z-index: 1;
+    overflow-x: clip;
 }
 
 .section-title {
@@ -1509,14 +1538,22 @@ scroll{
 /*skill section*/
 
 .skills-section {
+    width: 100%;
+    max-width: 100%;
     padding: var(--section-space) 0 clamp(60px, 8vw, 100px) 0;
     position: relative;
+    overflow-x: clip;
 }
 
 .skills-section .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--container-pad);
     display: block;
     position: relative;
     z-index: 1;
+    overflow-x: clip;
 }
 
 
