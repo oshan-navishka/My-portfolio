@@ -3074,6 +3074,25 @@ html[data-theme='light'] .btn.download-cv:hover {
     background: var(--surface-2);
 }
 
+/* Mobile touch states */
+@media (hover: none) and (pointer: coarse) {
+    .contact-card:active {
+        transform: scale(0.98);
+        background: var(--surface-2);
+        border-color: var(--primary);
+    }
+    
+    .contact-socials a:active {
+        transform: scale(0.95);
+        background: rgba(110, 69, 226, 0.15);
+    }
+    
+    .contact-submit:active {
+        transform: scale(0.97);
+        box-shadow: 0 5px 15px rgba(110, 69, 226, 0.2);
+    }
+}
+
 .contact-socials {
     display: flex;
     gap: 10px;
@@ -3180,8 +3199,324 @@ html[data-theme='light'] .btn.download-cv:hover {
 }
 
 @media (max-width: 900px) {
+    .contact-section {
+        padding: clamp(16px, 4vw, 26px) 0 clamp(60px, 8vw, 100px);
+    }
+    
+    .contact-subtitle {
+        max-width: 100%;
+        font-size: clamp(0.9rem, 2vw, 1rem);
+        margin-bottom: 20px;
+    }
+    
     .contact-layout {
         grid-template-columns: 1fr;
+        gap: clamp(12px, 2vw, 18px);
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: clamp(14px, 3vw, 20px) 0 clamp(60px, 8vw, 100px);
+    }
+    
+    .contact-subtitle {
+        font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+        margin-bottom: 16px;
+        line-height: 1.6;
+    }
+    
+    .contact-layout {
+        gap: 10px;
+    }
+    
+    .contact-panel {
+        padding: clamp(14px, 2.2vw, 20px);
+        border-radius: 14px;
+    }
+    
+    .contact-panel h3 {
+        font-size: clamp(1.05rem, 1.3vw, 1.3rem);
+        margin-bottom: 8px;
+    }
+    
+    .contact-panel p {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    .contact-list {
+        gap: 10px;
+    }
+    
+    .contact-card {
+        padding: 10px 11px;
+        gap: 8px;
+        font-size: 0.9rem;
+        border-radius: 10px;
+    }
+    
+    .contact-card i {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+    
+    .contact-socials {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
+    .contact-socials a {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+    
+    .contact-form {
+        padding: clamp(14px, 2.2vw, 20px);
+        gap: 8px;
+        border-radius: 14px;
+    }
+    
+    .contact-form label {
+        font-size: 0.85rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 9px 11px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+    
+    .contact-form textarea {
+        min-height: 110px;
+    }
+    
+    .contact-submit {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-section {
+        padding: clamp(12px, 2.5vw, 16px) 0 clamp(60px, 8vw, 100px);
+    }
+    
+    .contact-subtitle {
+        font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+        margin-bottom: 12px;
+    }
+    
+    .contact-panel {
+        padding: 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+    }
+    
+    .contact-panel h3 {
+        font-size: clamp(0.95rem, 3vw, 1.2rem);
+        margin-bottom: 6px;
+    }
+    
+    .contact-panel p {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+    
+    .contact-list {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+    
+    .contact-card {
+        padding: 8px 10px;
+        gap: 6px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+    
+    .contact-card i {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+    }
+    
+    .contact-socials {
+        gap: 6px;
+    }
+    
+    .contact-socials a {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+    
+    .contact-form {
+        padding: 12px;
+        gap: 6px;
+        border-radius: 12px;
+    }
+    
+    .contact-form label {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+        border-radius: 6px;
+    }
+    
+    .contact-form textarea {
+        min-height: 100px;
+    }
+    
+    .contact-submit {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+        border-radius: 6px;
+        margin-top: 2px;
+    }
+    
+    .contact-status {
+        font-size: 0.8rem;
+        min-height: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: clamp(10px, 2vw, 14px) 0 clamp(55px, 7vw, 90px);
+    }
+    
+    .contact-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+    
+    .contact-layout {
+        gap: 8px;
+    }
+    
+    .contact-panel {
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    .contact-panel h3 {
+        font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+        margin-bottom: 4px;
+    }
+    
+    .contact-panel p {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+    
+    .contact-card {
+        padding: 6px 8px;
+        gap: 6px;
+        font-size: 0.8rem;
+    }
+    
+    .contact-card i {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+    
+    .contact-socials {
+        gap: 5px;
+    }
+    
+    .contact-socials a {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+    }
+    
+    .contact-form {
+        padding: 10px;
+        gap: 5px;
+    }
+    
+    .contact-form label {
+        font-size: 0.75rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
+    
+    .contact-form textarea {
+        min-height: 90px;
+    }
+    
+    .contact-submit {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 360px) {
+    .contact-section {
+        padding: 8px 0 clamp(50px, 6vw, 80px);
+    }
+    
+    .contact-subtitle {
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
+    
+    .contact-panel {
+        padding: 8px;
+        border-radius: 8px;
+    }
+    
+    .contact-panel h3 {
+        font-size: 0.9rem;
+        margin-bottom: 3px;
+    }
+    
+    .contact-panel p {
+        font-size: 0.75rem;
+        margin-bottom: 6px;
+    }
+    
+    .contact-form {
+        padding: 8px;
+    }
+    
+    .contact-form label {
+        font-size: 0.7rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 5px 6px;
+        font-size: 0.75rem;
+    }
+    
+    .contact-form textarea {
+        min-height: 80px;
+    }
+    
+    .contact-submit {
+        padding: 6px 8px;
+        font-size: 0.75rem;
     }
 }
 
