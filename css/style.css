@@ -690,7 +690,8 @@ transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-link:hover {
-    color: #da3c0c;
+    color: #dbe5ff;
+    transform: translateX(3px);
 }
 
 .footer-social {
