@@ -82,7 +82,7 @@ svg {
     max-width: 100%;
 }
 
-/* â”€â”€ Plexus Background â”€â”€ */
+/* ----------- Plexus Background ---------- */
 #plexus-bg {
     position: fixed;
     inset: 0;
@@ -120,7 +120,7 @@ html[data-theme='light'] body::before {
     }
 }
 
-/* â”€â”€ Navbar â”€â”€ */
+/* ----------- Navbar ---------- */
 .navbar {
     position: fixed;
     top: 0;
@@ -275,7 +275,7 @@ html[data-theme='light'] body::before {
     margin-left: auto;
 }
 
-/* â”€â”€ Buttons â”€â”€ */
+/* ----------- Buttons ---------- */
 .btn-primary-custom {
     display: inline-flex;
     align-items: center;
@@ -385,7 +385,7 @@ html[data-theme='light'] body::before {
     }
 }
 
-/* â”€â”€ Hero Section â”€â”€ */
+/* ----------- Hero Section ---------- */
 .hero-section {
     min-height: 100vh;
     display: flex;
@@ -464,7 +464,7 @@ html[data-theme='light'] body::before {
     flex-wrap: wrap;
 }
 
-/* â”€â”€ Social Icons â”€â”€ */
+/* ----------- Social Icons ---------- */
 .social-icons {
     display: flex;
     gap: 12px;
@@ -519,7 +519,7 @@ html[data-theme='light'] body::before {
     }
 }
 
-/* â”€â”€ Neon Terminal â”€â”€ */
+/* ----------- Neon Terminal ---------- */
 .hero-illustration {
     display: flex;
     justify-content: center;
@@ -581,7 +581,7 @@ html[data-theme='light'] body::before {
     box-shadow: 0 0 8px var(--color);
 }
 
-/* â”€â”€ Footer â”€â”€ */
+/* ----------- Footer ----------    */
 footer {
     padding: 0;
     border-top: 1px solid var(--border-soft);
@@ -782,7 +782,7 @@ footer {
     box-shadow: var(--shadow-soft);
 }
 
-/* â”€â”€ Scroll Arrow Buttons â”€â”€ */
+/* ----------- Scroll Arrow Buttons ---------- */
 .scroll-controls {
     position: fixed;
     right: clamp(12px, 2vw, 22px);
@@ -1095,10 +1095,7 @@ html[data-theme='light'] .assign-btn.code-btn {
 
 }
 
-
-
-
-/* â”€â”€ Typewriter Effect â”€â”€ */
+/* ----------- Typewriter Effect ---------- */
 
 .hero-subtitle {
     display: flex;
@@ -1634,7 +1631,7 @@ scroll{
     border-color: rgba(110, 69, 226, 0.5);
 }
 
-/* â”€â”€ size agestments â”€â”€ */
+/* -------- Media Queries -------- */
 @media (max-width: 900px) {
     .cards-container {
         flex-wrap: wrap;
@@ -1765,7 +1762,7 @@ scroll{
     line-height: 1.3;
 }
 
-/* â”€â”€ size agestments â”€â”€ */
+/* ---------- Media Queries ---------- */
 @media (max-width: 1100px) {
     .tools-grid {
         grid-template-columns: repeat(5, 1fr);
@@ -2505,7 +2502,7 @@ scroll{
     opacity: 0.9;
 }
 
-/* â”€â”€ Responsive â”€â”€ */
+/* ------ Media Queries ------ */
 @media (max-width: 64rem) {
     .assign-col {
         width: calc(33.333% - 1.5rem);
@@ -2636,7 +2633,7 @@ scroll{
 
 /*Light mode*/
 
-/* â”€â”€ Light mode global text fixes â”€â”€ */
+/* ----------- Light mode global text fixes ---------- */
 html[data-theme='light'] body {
     background-color: var(--page-bg);
     color: var(--page-text);
@@ -2796,7 +2793,7 @@ html[data-theme='light'] .assign-btn.code-btn {
     border-color: var(--border-soft);
 }
 
-/* â”€â”€ View All button light mode â”€â”€ */
+/* ----------- View All button light mode ---------- */
 html[data-theme='light'] .view-all {
     border-color: rgba(110, 69, 226, 0.3);
     background: transparent;
@@ -2812,7 +2809,7 @@ html[data-theme='light'] .view-all-link:hover {
     color: var(--primary);
 }
 
-/* â”€â”€ Footer light mode â”€â”€ */
+/* ----------- Footer light mode ---------- */
 html[data-theme='light'] footer {
     border-top-color: var(--border-soft);
     background: #eef2ff;
@@ -2854,7 +2851,7 @@ html[data-theme='light'] .copyright {
     color: #64748b;
 }
 
-/* â”€â”€ Navbar light mode â”€â”€ */
+/* ----------- Navbar light mode ---------- */
 html[data-theme='light'] .navbar {
     background-color: var(--nav-bg);
     border-bottom-color: var(--border-soft);
@@ -2894,7 +2891,7 @@ html[data-theme='light'] .btn.download-cv:hover {
     box-shadow: var(--shadow-soft);
 }
 
-/*gallery section*/
+/* ----------- Gallery Section ---------- */
 .gallery-section {
     --gallery-zoom: 1;
     padding-block: clamp(40px, 6vw, 72px);
@@ -3025,7 +3022,7 @@ html[data-theme='light'] .btn.download-cv:hover {
 }
 
 
-/*contact section*/
+/* ----------- Contact Section ---------- */
 .contact-section {
     padding: clamp(18px, 5vw, 10px) 0 clamp(60px, 8vw, 100px);
     position: relative;
@@ -3552,7 +3549,7 @@ html[data-theme='light'] .btn.download-cv:hover {
     }
 }
 
-/* â”€â”€ Responsive device ladder â”€â”€ */
+/* ------------ Responsive device ladder ------------ */
 @media (max-width: 1200px) {
     .projects-container {
         grid-template-columns: repeat(2, minmax(0, 1fr));
