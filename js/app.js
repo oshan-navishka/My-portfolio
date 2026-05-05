@@ -10,8 +10,6 @@ progressBar.style.width = progress + "%";
 
 if (progress >= 100) {
 clearInterval(interval);
-
-      // fade out loader
   
 loader.style.opacity = "0";
 
@@ -545,6 +543,8 @@ init();
 })();
 
 // Contact form submit via FormSubmit AJAX API
+
+
 // (() => {
 //   const form = document.getElementById("contact-form");
 //   if (!form) return;
